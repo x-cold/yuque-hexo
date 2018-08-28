@@ -1,6 +1,6 @@
 {
   "name": "yuque-hexo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "html-entities": "^1.2.1",
     "lodash": "^4.17.10",
     "mkdirp": "^0.5.1",
+    "queue": "^4.5.0",
     "rimraf": "^2.6.2",
     "urllib": "^2.29.1"
   }
