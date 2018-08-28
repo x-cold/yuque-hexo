@@ -2,19 +2,19 @@
 
 const Command = require('common-bin');
 
-const clean = require('../lib/clean');
+const cleaner = require('../lib/clean');
 const download = require('../lib/download');
 
-class AddCommand extends Command {
+class SyncCommand extends Command {
   constructor(rawArgv) {
     super(rawArgv);
     this.usage = 'Usage: yuque-hexo sync';
   }
 
   async run({ argv }) {
-    clean();
+    cleaner.cleanPosts();
     await download();
   }
 }
 
-module.exports = AddCommand;
+module.exports = SyncCommand;
