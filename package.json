@@ -1,10 +1,15 @@
 {
   "name": "yuque-hexo",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf coverage",
+    "lint": "eslint .",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "ci": "npm run clean && npm run lint && egg-bin cov"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,7 @@
   },
   "homepage": "https://github.com/x-cold/yuque-hexo#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "common-bin": "^2.7.3",
     "debug": "^3.1.0",
     "ejs": "^2.6.1",
@@ -29,5 +35,12 @@
     "queue": "^4.5.0",
     "rimraf": "^2.6.2",
     "urllib": "^2.29.1"
+  },
+  "devDependencies": {
+    "coffee": "^5.1.0",
+    "egg-bin": "^4.8.3",
+    "egg-ci": "^1.8.0",
+    "eslint": "^5.4.0",
+    "eslint-config-egg": "^7.1.0"
   }
 }

@@ -3,6 +3,7 @@
 const Command = require('common-bin');
 
 const cleaner = require('../lib/clean');
+const out = require('../lib/out');
 
 class CleanCommand extends Command {
   constructor(rawArgv) {
@@ -10,9 +11,11 @@ class CleanCommand extends Command {
     this.usage = 'Usage: yuque-hexo sync';
   }
 
-  async run({ argv }) {
+  async run() {
+    out.info('yuque-hexo clean start.');
     cleaner.cleanPosts();
     cleaner.cleanYuqueCache();
+    out.info('yuque-hexo clean finished.');
   }
 }
 
