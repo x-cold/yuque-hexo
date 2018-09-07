@@ -4,7 +4,7 @@ const path = require('path');
 const coffee = require('coffee');
 const assert = require('assert');
 
-describe('test/my-git.test.js', () => {
+describe('test/hexo-project.test.js', () => {
   const myBin = require.resolve('../bin/yuque-hexo');
   const cwd = path.join(__dirname, 'hexo-project');
 
