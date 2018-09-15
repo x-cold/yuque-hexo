@@ -89,3 +89,9 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 # Example
 
 https://github.com/x-cold/blog/blob/master/package.json
+
+# Changelog
+
+### v1.1.1
+
+- 支持 hexo-front-matter，可以在文章中编辑 tags / date 等属性
