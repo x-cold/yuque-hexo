@@ -35,7 +35,8 @@
     "mkdirp": "^0.5.1",
     "queue": "^4.5.0",
     "rimraf": "^2.6.2",
-    "urllib": "^2.29.1"
+    "urllib": "^2.29.1",
+    "moment-timezone": "^0.5.21"
   },
   "devDependencies": {
     "coffee": "^5.1.0",
@@ -43,5 +44,11 @@
     "egg-ci": "^1.8.0",
     "eslint": "^5.4.0",
     "eslint-config-egg": "^7.1.0"
+  },
+  "yuqueConfig": {
+    "baseUrl": "https://www.yuque.com/api/v2",
+    "login": "page",
+    "repo": "luan.ma",
+    "timezone": "Asia/Shanghai"
   }
 }
