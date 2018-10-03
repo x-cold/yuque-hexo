@@ -39,7 +39,6 @@ A downloader for articles from yuque
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
     "repo": "blog",
-    "timezone": "Asia/Shanghai",
     "mdNameFormat": "title",
     "postPath": "source/_posts/yuque"
   }
