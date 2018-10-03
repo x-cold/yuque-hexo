@@ -5,6 +5,7 @@
     "login": "yinzhi",
     "repo": "blog",
     "timezone": "Asia/Shanghai",
-    "mdNameFormat": "title"
+    "mdNameFormat": "title",
+    "postPath": "source/_posts/yuque"
   }
 }

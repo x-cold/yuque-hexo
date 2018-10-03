@@ -40,12 +40,15 @@ A downloader for articles from yuque
     "login": "yinzhi",
     "repo": "blog",
     "timezone": "Asia/Shanghai",
-    "mdNameFormat": "title"
+    "mdNameFormat": "title",
+    "postPath": "source/_posts/yuque"
   }
 }
 ```
 
 "mdNameFormat": 生成的 Markdown 文件的文件名，可以选择 "title" 或者 "slug"，默认 "title"，slug 是语雀的永久链接名，一般是几个随机字母。
+
+"postPath": 存放从语雀下载的 Markdown 文件的文件夹
 
 ## Install
 
