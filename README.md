@@ -39,10 +39,13 @@ A downloader for articles from yuque
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
     "repo": "blog",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Shanghai",
+    "mdNameFormat": "title"
   }
 }
 ```
+
+"mdNameFormat": 生成的 Markdown 文件的文件名，可以选择 "title" 或者 "slug"，默认 "title"，slug 是语雀的永久链接名，一般是几个随机字母。
 
 ## Install
 
