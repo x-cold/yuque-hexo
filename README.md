@@ -38,10 +38,16 @@ A downloader for articles from yuque
   "yuqueConfig": {
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
-    "repo": "blog"
+    "repo": "blog",
+    "mdNameFormat": "title",
+    "postPath": "source/_posts/yuque"
   }
 }
 ```
+
+"mdNameFormat": 生成的 Markdown 文件的文件名，可以选择 "title" 或者 "slug"，默认 "title"，slug 是语雀的永久链接名，一般是几个随机字母。
+
+"postPath": 存放从语雀下载的 Markdown 文件的文件夹，除了 Hexo ，理论上可以支持其他支持 Front-matter 的 Markdown 静态博客
 
 ## Install
 
