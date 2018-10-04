@@ -26,7 +26,7 @@ A downloader for articles from yuque
 
 ## Premise
 
-事先拥有一个[hexo](https://github.com/hexojs/hexo)项目，在`package.json`配置相关信息，详见[例子](#Example)。
+事先拥有一个 [hexo](https://github.com/hexojs/hexo) 项目，在`package.json`配置相关信息，详见 [例子](#Example)。
 
 ## Config
 
