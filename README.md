@@ -101,3 +101,8 @@ https://github.com/x-cold/blog/blob/master/package.json
 ### v1.1.1
 
 - 支持 hexo-front-matter，可以在文章中编辑 tags / date 等属性
+
+### v1.2.1
+
+- 修复 windows 环境下命令行报错的问题
+- 支持自定义文件夹和博客文件命名
