@@ -8,7 +8,7 @@ const out = require('../lib/out');
 class CleanCommand extends Command {
   constructor(rawArgv) {
     super(rawArgv);
-    this.usage = 'Usage: yuque-hexo sync';
+    this.usage = 'Usage: yuque-hexo clean';
   }
 
   async run() {
