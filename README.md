@@ -87,10 +87,16 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Notice
 
-语雀同步过来的文章会生成两部分文件；
+1. 语雀同步过来的文章会生成两部分文件；
 
-- yuque.json: 从语雀 API 拉取的数据
-- source/_posts/yuque/*.md: 生成的 md 文件
+    - yuque.json: 从语雀 API 拉取的数据
+    - source/_posts/yuque/*.md: 生成的 md 文件
+
+2. 支持配置front-matter, 语雀编辑器编写示例如下:
+
+    ![image.png](https://cdn.nlark.com/yuque/0/2019/png/155457/1547033073596-797e3d68-fac4-40fd-8e8d-16ea1da4b705.png)
+
+    > 注意：分割线不能少
 
 # Example
 
