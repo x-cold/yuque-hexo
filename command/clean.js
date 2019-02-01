@@ -1,8 +1,7 @@
 'use strict';
 
 const Command = require('common-bin');
-
-const cleaner = require('../lib/clean');
+const cleaner = require('../lib/cleaner');
 const out = require('../lib/out');
 
 class CleanCommand extends Command {
@@ -12,10 +11,9 @@ class CleanCommand extends Command {
   }
 
   async run() {
-    out.info('yuque-hexo clean start.');
     cleaner.cleanPosts();
-    cleaner.cleanYuqueCache();
-    out.info('yuque-hexo clean finished.');
+    cleaner.clearCache();
+    out.info('yuque-hexo clean done!');
   }
 }
 

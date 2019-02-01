@@ -1,9 +1,9 @@
 'use strict';
 
 const Command = require('common-bin');
-
-const cleaner = require('../lib/clean');
-const download = require('../lib/download');
+const config = require('../config');
+const cleaner = require('../lib/cleaner');
+const Downloader = require('../lib/Downloader');
 const out = require('../lib/out');
 
 class SyncCommand extends Command {
@@ -13,10 +13,13 @@ class SyncCommand extends Command {
   }
 
   async run() {
-    out.info('yuque-hexo sync start.');
+    // clear previous directory.
+    out.info('clear previous directory.');
     cleaner.cleanPosts();
-    await download();
-    out.info('yuque-hexo sync finished.');
+    // get articles from yuque or cache
+    const downloader = new Downloader(config);
+    await downloader.autoUpdate();
+    out.info('yuque-hexo sync done!');
   }
 }
 
