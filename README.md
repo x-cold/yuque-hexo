@@ -89,29 +89,33 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 1. 语雀同步过来的文章会生成两部分文件；
 
-    - yuque.json: 从语雀 API 拉取的数据
-    - source/_posts/yuque/*.md: 生成的 md 文件
+- yuque.json: 从语雀 API 拉取的数据
+- source/_posts/yuque/*.md: 生成的 md 文件
 
 2. 支持配置front-matter, 语雀编辑器编写示例如下:
-    - 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)：
-    ![image.png](https://cdn.nlark.com/yuque/0/2019/png/155457/1547033073596-797e3d68-fac4-40fd-8e8d-16ea1da4b705.png)
-    语雀编辑器转换成的markdown 如下（已做兼容）：
-    ```markdown
-      tags: [hexo, node]<br />date: 2018-06-09<br />categories: 前端
 
-      ---
-    ```
+- 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)
 
-    - 标准 markdown 示例：
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/155457/1547033073596-797e3d68-fac4-40fd-8e8d-16ea1da4b705.png)
 
-    ```markdown
-      date: 2015-04-18 00:00:00
-      tags: [css]
-      categories: CSS 
-      ---
-    ```
+语雀编辑器转换成的markdown 如下（已做兼容）：
 
-    > 注意：分割线不能少，兼容一个或多个属性的自定义
+```markdown
+tags: [hexo, node]<br />date: 2018-06-09<br />categories: 前端
+
+---
+```
+
+- 标准 markdown 示例：
+
+```markdown
+date: 2015-04-18 00:00:00
+tags: [css]
+categories: CSS 
+---
+```
+
+> 注意：分割线不能少，兼容一个或多个属性的自定义
 
 # Example
 
@@ -131,3 +135,7 @@ https://github.com/x-cold/blog/blob/master/package.json
 ### v1.3.1
 
 - 修复 front-matter 处理格式问题
+
+### v1.4.0
+
+- 升级项目架构，增强扩展性，支持自定义 adpter

@@ -32,7 +32,7 @@ function loadConfig() {
 
 function loadJson() {
   const pkgPath = path.join(cwd, 'package.json');
-  out.info(`loading config: ${pkgPath}`);
+  // out.info(`loading config: ${pkgPath}`);
   try {
     const pkg = require(pkgPath);
     return pkg;
