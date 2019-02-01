@@ -21,8 +21,7 @@ describe('test/hexo-project.test.js', () => {
       const { stdout, code } = await coffee
         .fork(myBin, [ 'clean' ], { cwd })
         .end();
-      assert(stdout.includes('yuque-hexo clean start.'));
-      assert(stdout.includes('yuque-hexo clean finished.'));
+      assert(stdout.includes('yuque-hexo clean done!'));
       assert(stdout.includes('WARNING'));
       assert(code === 0);
     });
@@ -31,9 +30,8 @@ describe('test/hexo-project.test.js', () => {
       const { stdout, code } = await coffee
         .fork(myBin, [ 'sync' ], { cwd })
         .end();
-      assert(stdout.includes('yuque-hexo sync start.'));
       assert(stdout.includes('download article body'));
-      assert(stdout.includes('yuque-hexo sync finished.'));
+      assert(stdout.includes('yuque-hexo sync done!'));
       assert(code === 0);
     });
 
@@ -41,9 +39,8 @@ describe('test/hexo-project.test.js', () => {
       const { stdout, code } = await coffee
         .fork(myBin, [ 'sync' ], { cwd })
         .end();
-      assert(stdout.includes('yuque-hexo sync start.'));
       assert(!stdout.includes('download article body'));
-      assert(stdout.includes('yuque-hexo sync finished.'));
+      assert(stdout.includes('yuque-hexo sync done!'));
       assert(code === 0);
     });
 
@@ -51,8 +48,7 @@ describe('test/hexo-project.test.js', () => {
       const { stdout, code } = await coffee
         .fork(myBin, [ 'clean' ], { cwd })
         .end();
-      assert(stdout.includes('yuque-hexo clean start.'));
-      assert(stdout.includes('yuque-hexo clean finished.'));
+      assert(stdout.includes('yuque-hexo clean done!'));
       assert(!stdout.includes('WARNING'));
       assert(code === 0);
     });
