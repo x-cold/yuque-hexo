@@ -8,7 +8,6 @@ const { formatDate, formatRaw, formatTags } = require('../util');
 
 const entities = new Entities();
 
-
 // 文章模板
 const template = `
 ---

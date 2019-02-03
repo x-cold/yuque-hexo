@@ -13,6 +13,7 @@ const defaultConfig = {
   login: '',
   repo: '',
   adapter: 'hexo',
+  concurrency: 5,
 };
 
 function loadConfig() {

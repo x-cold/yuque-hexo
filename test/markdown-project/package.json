@@ -1,0 +1,11 @@
+{
+  "name": "your-hexo-project",
+  "yuqueConfig": {
+    "baseUrl": "https://www.yuque.com/api/v2",
+    "login": "yinzhi",
+    "repo": "blog",
+    "postPath": "report",
+    "mdNameFormat": "title",
+    "adapter": "markdown"
+  }
+}

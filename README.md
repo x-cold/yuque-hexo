@@ -39,6 +39,7 @@ A downloader for articles from yuque
     "postPath": "source/_posts/yuque",
     "cachePath": "yuque.json",
     "adapter": "hexo",
+    "concurrency": 5,
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
     "repo": "blog",
@@ -52,11 +53,11 @@ A downloader for articles from yuque
 | postPath | 文档同步后生成的路径 | source/_posts/yuque |
 | cachePath | 文档下载缓存文件 | yuque.json |
 | mdNameFormat | 文件名命名方式 (title / slug) | title |
-| adapter | 文档生成格式 (目前仅支持 hexo) | hexo |
+| adapter | 文档生成格式 (hexo/markdown) | hexo |
+| concurrency | 下载文章并发数 | 5 |
 | baseUrl | 语雀 API 地址 | - |
 | login | 语雀 login (group) | - |
 | repo | 语雀仓库短名称 | - |
-|  |  |  |
 
 > slug 是语雀的永久链接名，一般是几个随机字母。
 
@@ -153,3 +154,8 @@ https://github.com/x-cold/blog/blob/master/package.json
 ### v1.4.0
 
 - 升级项目架构，增强扩展性，支持自定义 adpter
+
+### v1.4.2
+
+- 支持纯 markdown 导出
+- 支持请求并发数量参数 `concurrency`
