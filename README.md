@@ -17,7 +17,7 @@
 [david-url]: https://david-dm.org/x-cold/yuque-hexo
 [snyk-image]: https://snyk.io/test/npm/yuque-hexo/badge.svg?style=flat-square
 [snyk-url]: https://snyk.io/test/npm/yuque-hexo
-[download-image]: https://img.shields.io/npm/dm/yuque-hexo.svg?style=flat-square
+[download-image]: https://badgen.net/npm/dt/yuque-hexo
 [download-url]: https://npmjs.org/package/yuque-hexo
 
 A downloader for articles from yuque
