@@ -14,6 +14,7 @@ const defaultConfig = {
   repo: '',
   adapter: 'hexo',
   concurrency: 5,
+  onlyPublished: false,
 };
 
 function loadConfig() {
