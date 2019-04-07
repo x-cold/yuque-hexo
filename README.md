@@ -38,12 +38,13 @@ A downloader for articles from yuque
   "yuqueConfig": {
     "postPath": "source/_posts/yuque",
     "cachePath": "yuque.json",
+    "mdNameFormat": "title",
     "adapter": "hexo",
     "concurrency": 5,
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
     "repo": "blog",
-    "mdNameFormat": "title",
+    "onlyPublished": false
   }
 }
 ```
@@ -58,6 +59,7 @@ A downloader for articles from yuque
 | baseUrl | 语雀 API 地址 | - |
 | login | 语雀 login (group) | - |
 | repo | 语雀仓库短名称 | - |
+| onlyPublished | 只展示已经发布的文章 | false |
 
 > slug 是语雀的永久链接名，一般是几个随机字母。
 
@@ -138,24 +140,28 @@ https://github.com/x-cold/blog/blob/master/package.json
 
 # Changelog
 
-### v1.1.1
+### v1.4.3
 
-- 支持 hexo-front-matter，可以在文章中编辑 tags / date 等属性
+- 支持过滤未发布文章 `onlyPublished`
+
+### v1.4.2
+
+- 支持纯 markdown 导出
+- 支持请求并发数量参数 `concurrency`
+
+### v1.4.0
+
+- 升级项目架构，增强扩展性，支持自定义 adpter
+
+### v1.3.1
+
+- 修复 front-matter 处理格式问题
 
 ### v1.2.1
 
 - 修复 windows 环境下命令行报错的问题
 - 支持自定义文件夹和博客文件命名
 
-### v1.3.1
+### v1.1.1
 
-- 修复 front-matter 处理格式问题
-
-### v1.4.0
-
-- 升级项目架构，增强扩展性，支持自定义 adpter
-
-### v1.4.2
-
-- 支持纯 markdown 导出
-- 支持请求并发数量参数 `concurrency`
+- 支持 hexo-front-matter，可以在文章中编辑 tags / date 等属性
