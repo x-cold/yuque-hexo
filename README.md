@@ -140,6 +140,10 @@ https://github.com/x-cold/blog/blob/master/package.json
 
 # Changelog
 
+### v1.5.0
+
+- 支持自定义 front-matter
+
 ### v1.4.3
 
 - 支持过滤未发布文章 `onlyPublished`

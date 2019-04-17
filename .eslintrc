@@ -1,7 +1,7 @@
 {
   "extends": "eslint-config-egg",
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2018
   },
   "rules": {
     "linebreak-style": 0

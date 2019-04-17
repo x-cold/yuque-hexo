@@ -1,6 +1,5 @@
 'use strict';
 
-const lodash = require('lodash');
 const ejs = require('ejs');
 const Entities = require('html-entities').AllHtmlEntities;
 const FrontMatter = require('hexo-front-matter');
@@ -11,10 +10,9 @@ const entities = new Entities();
 // 文章模板
 const template = `
 ---
-title: <%= title %>
-date: <%= date %>
-tags: <%= tags %>
-categories: <%= categories %>
+<% for (const key in props) {%>
+<%= key %>: <%= props[key] %>
+<% } %>
 ---
 <%- raw %>
 `;
@@ -56,16 +54,21 @@ function parseMatter(body) {
 module.exports = function(post) {
   // matter 解析
   const parseRet = parseMatter(post.body);
-  const newPost = lodash.merge({}, post, parseRet || {});
-  const { title, date, body, description, categories, tags, created_at } = newPost;
+  const { body, ...data } = parseRet;
+  const { title, description, created_at } = post;
   const raw = formatRaw(body);
-  const text = ejs.render(template, {
+  const date = data.date || formatDate(created_at);
+  const tags = data.tags || [];
+  const props = {
     title,
-    date: date || formatDate(created_at),
-    tags: formatTags(tags),
-    categories,
     description,
+    date,
+    tags: formatTags(tags),
+    ...data,
+  };
+  const text = ejs.render(template, {
     raw,
+    props,
   });
   return text;
 };
