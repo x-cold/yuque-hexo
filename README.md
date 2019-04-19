@@ -30,6 +30,8 @@ A downloader for articles from yuque
 
 ## Config
 
+如果你的知识库是私有的，请使用环境变量注入 Token 信息，在语雀上点击个人头像->设置—> Token 即可获取。
+
 > package.json
 
 ```json
@@ -41,7 +43,7 @@ A downloader for articles from yuque
     "mdNameFormat": "title",
     "adapter": "hexo",
     "concurrency": 5,
-    "baseUrl": "https://www.yuque.com/api/v2",
+    "baseUrl": "https://www.yuque.com/api/v2/",
     "login": "yinzhi",
     "repo": "blog",
     "onlyPublished": false
@@ -65,7 +67,7 @@ A downloader for articles from yuque
 
 ## Install
 
-```
+```bash
 npm i -g yuque-hexo
 # or
 npm i --save-dev yuque-hexo
@@ -110,35 +112,35 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 * yuque.json: 从语雀 API 拉取的数据
 * source/_posts/yuque/*.md: 生成的 md 文件
 
-1. 支持配置front-matter, 语雀编辑器编写示例如下:
+1. 支持配置 front-matter, 语雀编辑器编写示例如下:
 
 * 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/103147/1549081824097-9a70a577-c0a7-480d-adf1-81fb2f259938.png#align=left&display=inline&height=382&linkTarget=_blank&name=image.png&originHeight=764&originWidth=1650&size=134251&width=825)<br />
-
-* 语雀编辑器转换成的markdown 如下（已做兼容）：
-
 ```markdown
-tags: [hexo, node]&lt;br /&gt;date: 2018-06-09&lt;br /&gt;categories: 前端
+
+tags: [hexo, node]
+categories: fe
+cover: https://cdn.nlark.com/yuque/0/2019/jpeg/155457/1546857679810-d82e3d46-e960-419c-a715-0a82c48a2fd6.jpeg#align=left&display=inline&height=225&name=image.jpeg&originHeight=225&originWidth=225&size=6267&width=225
+
 ---
+
+some description
+
+<!-- more -->
+
+more detail
 ```
-
-* 标准 markdown 示例：
-
-```markdown
-date: 2015-04-18 00:00:00
-tags: [css]
-categories: CSS 
----
-```
-
-> 注意：分割线不能少，兼容一个或多个属性的自定义
 
 # Example
 
 https://github.com/x-cold/blog/blob/master/package.json
 
 # Changelog
+
+### v1.6.0（待验证和发布）
+
+- 支持私有仓库同步
+- 使用语雀官方的 SDK
 
 ### v1.5.0
 

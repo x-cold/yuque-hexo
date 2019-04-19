@@ -1,6 +1,6 @@
 {
   "name": "yuque-hexo",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/x-cold/yuque-hexo#readme",
   "dependencies": {
+    "@yuque/sdk": "^1.1.1",
     "chalk": "^2.4.1",
     "common-bin": "^2.7.3",
     "debug": "^3.1.0",
