@@ -5,11 +5,13 @@ const lodash = require('lodash');
 const out = require('./lib/out');
 
 const cwd = process.cwd();
+const token = process.env.YUQUE_TOKEN;
 const defaultConfig = {
   postPath: 'source/_posts/yuque',
   cachePath: 'yuque.json',
   mdNameFormat: 'title',
-  baseUrl: 'https://www.yuque.com/api/v2',
+  baseUrl: 'https://www.yuque.com/api/v2/',
+  token,
   login: '',
   repo: '',
   adapter: 'hexo',
@@ -39,7 +41,7 @@ function loadJson() {
     const pkg = require(pkgPath);
     return pkg;
   } catch (error) {
-    return false;
+    // do nothing
   }
 }
 
