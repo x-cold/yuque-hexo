@@ -107,33 +107,34 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Notice
 
-1. 语雀同步过来的文章会生成两部分文件；
+* 语雀同步过来的文章会生成两部分文件；
 
-* yuque.json: 从语雀 API 拉取的数据
-* source/_posts/yuque/*.md: 生成的 md 文件
+  * yuque.json: 从语雀 API 拉取的数据
+  * source/_posts/yuque/*.md: 生成的 md 文件
 
-1. 支持配置 front-matter, 语雀编辑器编写示例如下:
+* 支持配置 front-matter, 语雀编辑器编写示例如下:
 
-* 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)
+  * 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)
 
-```markdown
+  ```markdown
 
-tags: [hexo, node]
-categories: fe
-cover: https://cdn.nlark.com/yuque/0/2019/jpeg/155457/1546857679810-d82e3d46-e960-419c-a715-0a82c48a2fd6.jpeg#align=left&display=inline&height=225&name=image.jpeg&originHeight=225&originWidth=225&size=6267&width=225
+  tags: [hexo, node]
+  categories: fe
+  cover: https://cdn.nlark.com/yuque/0/2019/jpeg/155457/1546857679810-d82e3d46-e960-419c-a715-0a82c48a2fd6.jpeg#align=left&display=inline&height=225&name=image.jpeg&originHeight=225&originWidth=225&size=6267&width=225
 
----
+  ---
 
-some description
+  some description
 
-<!-- more -->
+  <!-- more -->
 
-more detail
-```
+  more detail
+  ```
 
 # Example
 
-https://github.com/x-cold/blog/blob/master/package.json
+- yuque to hexo: [x-cold/blog](https://github.com/x-cold/blog/blob/master/package.json)
+- yuque to github repo: [txd-team/monthly](https://github.com/txd-team/monthly/blob/master/package.json)
 
 # Changelog
 
