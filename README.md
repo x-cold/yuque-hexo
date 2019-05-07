@@ -137,10 +137,11 @@ https://github.com/x-cold/blog/blob/master/package.json
 
 # Changelog
 
-### v1.6.0（待验证和发布）
+### v1.6.0
 
-- 支持私有仓库同步
-- 使用语雀官方的 SDK
+- 🐸 修复 descrption 导致的 front-matter 解析错误[问题](https://github.com/x-cold/yuque-hexo/issues/27#issuecomment-490138318)
+- 🔥 支持私有仓库同步
+- 🔥 使用语雀官方的 SDK，支持 YUQUE_TOKEN，可以解除 API 调用次数限制
 
 ### v1.5.0
 
