@@ -30,7 +30,7 @@ A downloader for articles from yuque
 
 ## Config
 
-如果你的知识库是私有的，请使用环境变量注入 Token 信息，在语雀上点击个人头像->设置—> Token 即可获取。
+如果你的知识库是私有的，请使用环境变量 (YUQUE_TOKEN=xxx) 注入 Token 信息，在语雀上点击个人头像->设置—> Token 即可获取。
 
 > package.json
 
