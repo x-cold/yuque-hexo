@@ -62,8 +62,8 @@ module.exports = function(post) {
   const props = {
     title,
     date,
-    tags: formatTags(tags),
     ...data,
+    tags: formatTags(tags),
   };
   const text = ejs.render(template, {
     raw,
