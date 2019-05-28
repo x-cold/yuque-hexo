@@ -140,6 +140,10 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 ### v1.6.0
 
+- 🐸 修复 tags 格式化[问题](https://github.com/x-cold/yuque-hexo/issues/31)
+
+### v1.6.0
+
 - 🐸 修复 descrption 导致的 front-matter 解析错误[问题](https://github.com/x-cold/yuque-hexo/issues/27#issuecomment-490138318)
 - 🔥 支持私有仓库同步
 - 🔥 使用语雀官方的 SDK，支持 YUQUE_TOKEN，可以解除 API 调用次数限制
