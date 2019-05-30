@@ -20,7 +20,7 @@
 [download-image]: https://badgen.net/npm/dt/yuque-hexo
 [download-url]: https://npmjs.org/package/yuque-hexo
 
-A downloader for articles from yuque
+A downloader for articles from yuque（语雀知识库同步工具）
 
 # Usage
 
@@ -138,7 +138,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
-### v1.6.0
+### v1.6.1
 
 - 🐸 修复 tags 格式化[问题](https://github.com/x-cold/yuque-hexo/issues/31)
 
