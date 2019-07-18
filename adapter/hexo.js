@@ -55,12 +55,13 @@ module.exports = function(post) {
   // matter 解析
   const parseRet = parseMatter(post.body);
   const { body, ...data } = parseRet;
-  const { title, created_at } = post;
+  const { title, slug: urlname, created_at } = post;
   const raw = formatRaw(body);
   const date = data.date || formatDate(created_at);
   const tags = data.tags || [];
   const props = {
     title,
+    urlname,
     date,
     ...data,
     tags: formatTags(tags),
