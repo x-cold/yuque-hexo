@@ -26,11 +26,11 @@ A downloader for articles from yuque（语雀知识库同步工具）
 
 ## Premise
 
-事先拥有一个 [hexo](https://github.com/hexojs/hexo) 项目，在`package.json`配置相关信息，详见 [例子](#Example)。
+事先拥有一个 [hexo](https://github.com/hexojs/hexo) 项目，并在 `package.json` 中配置相关信息，可参考 [例子](#Example)。
 
 ## Config
 
-如果你的知识库是私有的，请使用环境变量 (YUQUE_TOKEN=xxx) 注入 Token 信息，在语雀上点击个人头像->设置—> Token 即可获取。
+如果你的知识库是私有的，需要注入环境变量 `YUQUE_TOKEN=xxx`，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。
 
 > package.json
 
@@ -43,7 +43,7 @@ A downloader for articles from yuque（语雀知识库同步工具）
     "mdNameFormat": "title",
     "adapter": "hexo",
     "concurrency": 5,
-    "baseUrl": "https://www.yuque.com/api/v2/",
+    "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
     "repo": "blog",
     "onlyPublished": false
@@ -59,8 +59,8 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | adapter | 文档生成格式 (hexo/markdown) | hexo |
 | concurrency | 下载文章并发数 | 5 |
 | baseUrl | 语雀 API 地址 | - |
-| login | 语雀 login (group) | - |
-| repo | 语雀仓库短名称 | - |
+| login | 语雀 login (group), 也称为个人路径 | - |
+| repo | 语雀仓库短名称，也称为语雀知识库路径 | - |
 | onlyPublished | 只展示已经发布的文章 | false |
 
 > slug 是语雀的永久链接名，一般是几个随机字母。
