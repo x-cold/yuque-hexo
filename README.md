@@ -89,7 +89,6 @@ yuque-hexo clean
 
 ```json
 {
-  "dev": "npm run sync && hexo s",
   "sync": "yuque-hexo sync",
   "clean:yuque": "yuque-hexo clean"
 }
@@ -131,12 +130,18 @@ DEBUG=yuque-hexo.* yuque-hexo sync
   more detail
   ```
 
+* 如果遇到上传到语雀的图片无法加载的问题，可以参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
+
 # Example
 
 - yuque to hexo: [x-cold/blog](https://github.com/x-cold/blog/blob/master/package.json)
 - yuque to github repo: [txd-team/monthly](https://github.com/txd-team/monthly/blob/master/package.json)
 
 # Changelog
+
+### v1.6.2
+
+- 🔥使用 slug 自定义 urlname (https://github.com/x-cold/yuque-hexo/pull/37)
 
 ### v1.6.1
 
