@@ -60,7 +60,7 @@ module.exports = function(post) {
   const date = data.date || formatDate(created_at);
   const tags = data.tags || [];
   const props = {
-    title,
+    title: title.replace(/"/g, ''), // 临时去掉标题中的引号，至少保证文章页面是正常可访问的
     urlname,
     date,
     ...data,
