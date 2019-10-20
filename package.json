@@ -42,7 +42,7 @@
     "rimraf": "^2.6.2",
     "update-check": "^1.5.3",
     "urllib": "^2.29.1",
-    "snyk": "^1.230.5"
+    "snyk": "^1.236.1"
   },
   "devDependencies": {
     "coffee": "^5.1.0",

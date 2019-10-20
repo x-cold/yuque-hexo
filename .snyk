@@ -12,3 +12,7 @@ patch:
         patched: '2019-10-04T06:48:05.420Z'
     - '@yuque/sdk > urllib > proxy-agent > pac-proxy-agent > https-proxy-agent':
         patched: '2019-10-04T06:48:05.420Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-20T12:18:50.492Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-20T12:18:50.492Z'
