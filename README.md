@@ -100,7 +100,7 @@ yuque-hexo clean
 DEBUG=yuque-hexo.* yuque-hexo sync
 ```
 
-## Travis CI
+## CICD
 
 提供了一个触发 Travis CI 构建的 HTTP API 接口，详情请查看[文档](https://github.com/x-cold/aliyun-function/tree/master/travis_ci) (请勿恶意使用)
 
@@ -141,7 +141,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 ### v1.6.2
 
-- 🔥使用 slug 自定义 urlname (https://github.com/x-cold/yuque-hexo/pull/37)
+- 🔥使用 slug 自定义 [urlname](https://github.com/x-cold/yuque-hexo/pull/37)
 
 ### v1.6.1
 
