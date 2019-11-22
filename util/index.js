@@ -49,7 +49,7 @@ function doubleDigit(num) {
 exports.doubleDigit = doubleDigit;
 
 function formatDate(date) {
-  return moment(date).format('YYYY-MM-DD HH:mm:ss ZZ');
+  return moment(new Date(date).toISOString()).format('YYYY-MM-DD HH:mm:ss ZZ');
 }
 
 exports.formatDate = formatDate;
