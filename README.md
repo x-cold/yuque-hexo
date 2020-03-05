@@ -30,8 +30,16 @@ A downloader for articles from yuque（语雀知识库同步工具）
 
 ## Config
 
-如果你的知识库是私有的，需要注入环境变量 `YUQUE_TOKEN=xxx`，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。
+### 配置 TOKEN
 
+出于对知识库安全性的调整，使用第三方 API 访问知识库，需要传入环境变量 YUQUE_TOKEN，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 yuque-hexo 的进程有两种方式：
+
+- 设置全局的环境变量 YUQUE_TOKEN
+- 命令执行时传入环境变量
+  - mac / linux: `YUQUE_TOKEN=xxx yuque-hexo sync`
+  - windows: `set YUQUE_TOKEN=xxx && yuque-hexo sync`
+
+### 配置知识库
 > package.json
 
 ```json
