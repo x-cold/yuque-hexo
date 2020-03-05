@@ -100,9 +100,12 @@ yuque-hexo clean
 DEBUG=yuque-hexo.* yuque-hexo sync
 ```
 
-## CICD
+## Best practice
 
-提供了一个触发 Travis CI 构建的 HTTP API 接口，详情请查看[文档](https://github.com/x-cold/aliyun-function/tree/master/travis_ci) (请勿恶意使用)
+- [Hexo 博客终极玩法：云端写作，自动部署](https://www.yuque.com/u46795/blog/dlloc7)
+- [Hexo：语雀云端写作 Github Actions 持续集成](https://www.zhwei.cn/hexo-github-actions-yuque/)
+
+> 另外 x-cold 本人提供了一个触发 Travis CI 构建的 HTTP API 接口，详情请查看[文档](https://github.com/x-cold/aliyun-function/tree/master/travis_ci) (请勿恶意使用)
 
 # Notice
 
