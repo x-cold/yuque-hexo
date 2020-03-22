@@ -150,9 +150,14 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
+### v1.6.3
+
+- 🔥 支持嵌套的 categories 解析 #56
+- 🐸 使用 [filenamify](https://github.com/sindresorhus/filenamify) 修复因为特殊字符的标题，生成非法的文件名导致的程序错误
+
 ### v1.6.2
 
-- 🔥使用 slug 自定义 [urlname](https://github.com/x-cold/yuque-hexo/pull/37)
+- 🔥 使用 slug 自定义 [urlname](https://github.com/x-cold/yuque-hexo/pull/37)
 
 ### v1.6.1
 
