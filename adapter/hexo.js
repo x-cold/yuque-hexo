@@ -3,7 +3,7 @@
 const ejs = require('ejs');
 const Entities = require('html-entities').AllHtmlEntities;
 const FrontMatter = require('hexo-front-matter');
-const { formatDate, formatRaw, formatTags } = require('../util');
+const { formatDate, formatRaw, formatTags, formatList } = require('../util');
 
 const entities = new Entities();
 
@@ -59,12 +59,14 @@ module.exports = function(post) {
   const raw = formatRaw(body);
   const date = data.date || formatDate(created_at);
   const tags = data.tags || [];
+  const categories = data.categories || [];
   const props = {
     title: title.replace(/"/g, ''), // 临时去掉标题中的引号，至少保证文章页面是正常可访问的
     urlname,
     date,
     ...data,
     tags: formatTags(tags),
+    categories: formatList(categories),
   };
   const text = ejs.render(template, {
     raw,

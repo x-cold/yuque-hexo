@@ -1,6 +1,6 @@
 {
   "name": "yuque-hexo",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "debug": "^3.1.0",
     "depd": "^2.0.0",
     "ejs": "^2.6.1",
+    "filenamify": "^4.1.0",
     "hexo-front-matter": "^0.2.3",
     "html-entities": "^1.2.1",
     "lodash": "^4.17.10",

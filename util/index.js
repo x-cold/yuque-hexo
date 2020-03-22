@@ -4,7 +4,7 @@ const moment = require('moment');
 const lodash = require('lodash');
 
 /**
- * 格式化 markdown 内容
+ * 格式化 markdown 中的 tags
  *
  * @param {Array} tags tags
  * @return {String} body
@@ -15,6 +15,26 @@ function formatTags(tags) {
 }
 
 exports.formatTags = formatTags;
+
+/**
+ * 格式化 front matter 中的可嵌套数组
+ *
+ * @param {Array} list list
+ * @return {String} body
+ */
+function formatList(list = []) {
+  const result = [];
+  for (const item of list) {
+    if (Array.isArray(item)) {
+      result.push(formatList(item));
+    } else {
+      result.push(item);
+    }
+  }
+  return `[${result.join(',')}]`;
+}
+
+exports.formatList = formatList;
 
 /**
  * 格式化 markdown 内容
