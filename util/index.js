@@ -43,9 +43,11 @@ exports.formatList = formatList;
  * @return {String} body
  */
 function formatRaw(body) {
-  const multiBr = /(<br>\s){2}/gi;
+  const multiBr = /(<br>[\s\n]){2}/gi;
+  const multiBrEnd = /(<br \/>[\n]?){2}/gi;
+  const brBug = '**<br />';
   const hiddenContent = /<div style="display:none">[\s\S]*?<\/div>/gi;
-  return body.replace(hiddenContent, '').replace(multiBr, '<br>');
+  return body.replace(hiddenContent, '').replace(multiBr, '<br>').replace(multiBrEnd, '<br />\n').replace(brBug, '');
 }
 
 exports.formatRaw = formatRaw;
