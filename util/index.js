@@ -47,7 +47,8 @@ function formatRaw(body) {
   const multiBrEnd = /(<br \/>[\n]?){2}/gi;
   const brBug = '**<br />';
   const hiddenContent = /<div style="display:none">[\s\S]*?<\/div>/gi;
-  return body.replace(hiddenContent, '').replace(multiBr, '<br>').replace(multiBrEnd, '<br />\n').replace(brBug, '');
+  return body.replace(hiddenContent, '').replace(multiBr, '<br>').replace(multiBrEnd, '<br />\n')
+    .replace(brBug, '');
 }
 
 exports.formatRaw = formatRaw;
