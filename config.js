@@ -17,6 +17,7 @@ const defaultConfig = {
   adapter: 'hexo',
   concurrency: 5,
   onlyPublished: false,
+  onlyPublic: false,
 };
 
 function loadConfig() {

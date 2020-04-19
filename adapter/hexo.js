@@ -8,14 +8,13 @@ const { formatDate, formatRaw, formatTags, formatList } = require('../util');
 const entities = new Entities();
 
 // 文章模板
-const template = `
----
-<% for (const key in props) {%>
+const template = `---
+<% for (const key in props) {-%>
 <%= key %>: <%= props[key] %>
-<% } %>
+<% } -%>
 ---
-<%- raw %>
-`;
+
+<%- raw -%>`;
 
 /**
  * front matter 反序列化

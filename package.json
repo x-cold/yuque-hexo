@@ -37,6 +37,7 @@
     "lodash": "^4.17.10",
     "mkdirp": "^1.0.0",
     "moment": "^2.22.2",
+    "prettier": "^2.0.4",
     "queue": "^4.5.0",
     "rimraf": "^2.6.2",
     "update-check": "^1.5.3",
