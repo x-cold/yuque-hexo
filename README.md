@@ -152,6 +152,12 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
+### v1.6.5
+
+- 🔥 支持过滤 public 文章
+- 🔥 生成的 markdown 自动格式化
+- 🔥 移除去除语雀的锚点
+
 ### v1.6.4
 
 - 🐸 修复多行 <br /> 的[问题](https://github.com/x-cold/yuque-hexo/pull/59)
