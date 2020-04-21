@@ -2,6 +2,7 @@
 
 const moment = require('moment');
 const lodash = require('lodash');
+const prettier = require('prettier');
 
 /**
  * 格式化 markdown 中的 tags
@@ -45,10 +46,17 @@ exports.formatList = formatList;
 function formatRaw(body) {
   const multiBr = /(<br>[\s\n]){2}/gi;
   const multiBrEnd = /(<br \/>[\n]?){2}/gi;
-  const brBug = '**<br />';
+  const brBug = /<br \/>/g;
   const hiddenContent = /<div style="display:none">[\s\S]*?<\/div>/gi;
-  return body.replace(hiddenContent, '').replace(multiBr, '<br>').replace(multiBrEnd, '<br />\n')
-    .replace(brBug, '');
+  // 删除语雀特有的锚点
+  const emptyAnchor = /<a name=\".*?\"><\/a>/g;
+  body = body
+    .replace(hiddenContent, '')
+    .replace(multiBr, '<br>')
+    .replace(multiBrEnd, '<br />\n')
+    .replace(brBug, '\n')
+    .replace(emptyAnchor, '');
+  return prettier.format(body, { parser: 'markdown' });
 }
 
 exports.formatRaw = formatRaw;

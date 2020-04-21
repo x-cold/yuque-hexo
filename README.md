@@ -40,6 +40,7 @@ A downloader for articles from yuque（语雀知识库同步工具）
   - windows: `set YUQUE_TOKEN=xxx && yuque-hexo sync`
 
 ### 配置知识库
+
 > package.json
 
 ```json
@@ -54,22 +55,24 @@ A downloader for articles from yuque（语雀知识库同步工具）
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
     "repo": "blog",
-    "onlyPublished": false
+    "onlyPublished": false,
+    "onlyPublic": false
   }
 }
 ```
 
-| 参数名 | 含义 | 默认值 |
-| --- | --- | --- |
-| postPath | 文档同步后生成的路径 | source/_posts/yuque |
-| cachePath | 文档下载缓存文件 | yuque.json |
-| mdNameFormat | 文件名命名方式 (title / slug) | title |
-| adapter | 文档生成格式 (hexo/markdown) | hexo |
-| concurrency | 下载文章并发数 | 5 |
-| baseUrl | 语雀 API 地址 | - |
-| login | 语雀 login (group), 也称为个人路径 | - |
-| repo | 语雀仓库短名称，也称为语雀知识库路径 | - |
-| onlyPublished | 只展示已经发布的文章 | false |
+| 参数名        | 含义                                 | 默认值               |
+| ------------- | ------------------------------------ | -------------------- |
+| postPath      | 文档同步后生成的路径                 | source/\_posts/yuque |
+| cachePath     | 文档下载缓存文件                     | yuque.json           |
+| mdNameFormat  | 文件名命名方式 (title / slug)        | title                |
+| adapter       | 文档生成格式 (hexo/markdown)         | hexo                 |
+| concurrency   | 下载文章并发数                       | 5                    |
+| baseUrl       | 语雀 API 地址                        | -                    |
+| login         | 语雀 login (group), 也称为个人路径   | -                    |
+| repo          | 语雀仓库短名称，也称为语雀知识库路径 | -                    |
+| onlyPublished | 只展示已经发布的文章                 | false                |
+| onlyPublic    | 只展示公开文章                       | false                |
 
 > slug 是语雀的永久链接名，一般是几个随机字母。
 
@@ -117,17 +120,16 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Notice
 
-* 语雀同步过来的文章会生成两部分文件；
+- 语雀同步过来的文章会生成两部分文件；
 
-  * yuque.json: 从语雀 API 拉取的数据
-  * source/_posts/yuque/*.md: 生成的 md 文件
+  - yuque.json: 从语雀 API 拉取的数据
+  - source/\_posts/yuque/\*.md: 生成的 md 文件
 
-* 支持配置 front-matter, 语雀编辑器编写示例如下:
+- 支持配置 front-matter, 语雀编辑器编写示例如下:
 
-  * 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)
+  - 语雀编辑器示例，可参考[原文](https://www.yuque.com/u46795/blog/dlloc7)
 
   ```markdown
-
   tags: [hexo, node]
   categories: fe
   cover: https://cdn.nlark.com/yuque/0/2019/jpeg/155457/1546857679810-d82e3d46-e960-419c-a715-0a82c48a2fd6.jpeg#align=left&display=inline&height=225&name=image.jpeg&originHeight=225&originWidth=225&size=6267&width=225
@@ -141,7 +143,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
   more detail
   ```
 
-* 如果遇到上传到语雀的图片无法加载的问题，可以参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
+- 如果遇到上传到语雀的图片无法加载的问题，可以参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
 
 # Example
 
