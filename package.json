@@ -9,7 +9,9 @@
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
-    "ci": "npm run clean && npm run lint && egg-bin cov"
+    "ci": "npm run clean && npm run lint && egg-bin cov",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -41,7 +43,8 @@
     "queue": "^4.5.0",
     "rimraf": "^2.6.2",
     "update-check": "^1.5.3",
-    "urllib": "^2.29.1"
+    "urllib": "^2.29.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "coffee": "^5.1.0",
