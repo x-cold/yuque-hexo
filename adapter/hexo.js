@@ -8,10 +8,10 @@ const { formatDate, formatRaw, formatTags, formatList } = require('../util');
 const entities = new Entities();
 // 背景色区块支持
 const colorBlocks = {
-  '^:::tips$': `<div style="background: #FFFBE6;padding:10px;border: 1px solid #C3C3C3;border-radius:5px;margin-bottom:5px;">`,
-  '^:::danger$': `<div style="background: #FFF3F3;padding:10px;border: 1px solid #DEB8BE;border-radius:5px;margin-bottom:5px;">`,
-  '^:::info$': `<div style="background: #E8F7FF;padding:10px;border: 1px solid #ABD2DA;border-radius:5px;margin-bottom:5px;">`,
-  '^:::$': '</div>\n',
+  ':::tips\n': `<div style="background: #FFFBE6;padding:10px;border: 1px solid #C3C3C3;border-radius:5px;margin-bottom:5px;">`,
+  ':::danger\n': `<div style="background: #FFF3F3;padding:10px;border: 1px solid #DEB8BE;border-radius:5px;margin-bottom:5px;">`,
+  ':::info\n': `<div style="background: #E8F7FF;padding:10px;border: 1px solid #ABD2DA;border-radius:5px;margin-bottom:5px;">`,
+  '\\s+:::': '</div>',
 };
 
 // 文章模板
