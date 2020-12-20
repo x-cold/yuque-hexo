@@ -6,6 +6,13 @@ const FrontMatter = require('hexo-front-matter');
 const { formatDate, formatRaw, formatTags, formatList } = require('../util');
 
 const entities = new Entities();
+// 背景色区块支持
+const colorBlocks = {
+  '^:::tips$': `<div style="background: #FFFBE6;padding:10px;border: 1px solid #C3C3C3;border-radius:5px;margin-bottom:5px;">`,
+  '^:::danger$': `<div style="background: #FFF3F3;padding:10px;border: 1px solid #DEB8BE;border-radius:5px;margin-bottom:5px;">`,
+  '^:::info$': `<div style="background: #E8F7FF;padding:10px;border: 1px solid #ABD2DA;border-radius:5px;margin-bottom:5px;">`,
+  '^:::$': '</div>\n',
+};
 
 // 文章模板
 const template = `---
@@ -29,6 +36,10 @@ function parseMatter(body) {
     body = body.replace(regex, (a) =>
       a.replace(/(<br \/>|<br>|<br\/>)/gi, '\n')
     );
+    // 支持提示区块语法
+    for (const key in colorBlocks) {
+      body = body.replace(new RegExp(key, 'igm'), colorBlocks[key]);
+    }
     const result = FrontMatter.parse(body);
     result.body = result._content;
     if (result.date) {
