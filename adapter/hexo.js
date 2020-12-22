@@ -6,13 +6,17 @@ const FrontMatter = require('hexo-front-matter');
 const { formatDate, formatRaw, formatTags, formatList } = require('../util');
 
 const entities = new Entities();
+// 背景色区块支持
+const colorBlocks = {
+  ':::tips\n': `<div style="background: #FFFBE6;padding:10px;border: 1px solid #C3C3C3;border-radius:5px;margin-bottom:5px;">`,
+  ':::danger\n': `<div style="background: #FFF3F3;padding:10px;border: 1px solid #DEB8BE;border-radius:5px;margin-bottom:5px;">`,
+  ':::info\n': `<div style="background: #E8F7FF;padding:10px;border: 1px solid #ABD2DA;border-radius:5px;margin-bottom:5px;">`,
+  '\\s+:::': '</div>',
+};
 
 // 文章模板
 const template = `---
-<% for (const key in props) {-%>
-<%= key %>: <%= props[key] %>
-<% } -%>
----
+<%- matter -%>
 
 <%- raw -%>`;
 
@@ -29,7 +33,13 @@ function parseMatter(body) {
   try {
     // front matter信息的<br/>换成 \n
     const regex = /(title:|layout:|tags:|date:|categories:){1}(\S|\s)+?---/gi;
-    body = body.replace(regex, a => a.replace(/(<br \/>|<br>|<br\/>)/gi, '\n'));
+    body = body.replace(regex, (a) =>
+      a.replace(/(<br \/>|<br>|<br\/>)/gi, '\n')
+    );
+    // 支持提示区块语法
+    for (const key in colorBlocks) {
+      body = body.replace(new RegExp(key, 'igm'), colorBlocks[key]);
+    }
     const result = FrontMatter.parse(body);
     result.body = result._content;
     if (result.date) {
@@ -50,7 +60,7 @@ function parseMatter(body) {
  * @param {Object} post 文章
  * @return {String} text
  */
-module.exports = function(post) {
+module.exports = function (post) {
   // matter 解析
   const parseRet = parseMatter(post.body);
   const { body, ...data } = parseRet;
@@ -64,12 +74,12 @@ module.exports = function(post) {
     urlname,
     date,
     ...data,
-    tags: formatTags(tags),
-    categories: formatList(categories),
+    tags: tags,
+    categories: categories,
   };
   const text = ejs.render(template, {
     raw,
-    props,
+    matter: FrontMatter.stringify(props),
   });
   return text;
 };

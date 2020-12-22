@@ -18,8 +18,11 @@ class SyncCommand extends Command {
     }
 
     // clear previous directory.
-    out.info('clear previous directory.');
-    cleaner.cleanPosts();
+    if (initConfig.lastGenerate === '') {
+      out.info('clear previous directory.');
+      cleaner.cleanPosts();
+    }
+
     // get articles from yuque or cache
     const downloader = new Downloader(initConfig);
     await downloader.autoUpdate();
