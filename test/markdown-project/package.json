@@ -3,7 +3,7 @@
   "yuqueConfig": {
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yinzhi",
-    "repo": "blog",
+    "repo": "yuque-hexo-demo",
     "postPath": "report",
     "mdNameFormat": "title",
     "adapter": "markdown",
