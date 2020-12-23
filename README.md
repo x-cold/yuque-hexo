@@ -156,6 +156,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 - 🔥 支持语雀提示区块语法
 - 🐸 修复 front-matter 中 “:” 等特殊字符会导致文章无法正常生成
 - 🐸 由于 [prettier 不再支持 Node 8](https://github.com/prettier/eslint-config-prettier/issues/140)，markdown 格式化仅在 node 版本 >= 10 生效
+- 🐸 现在必须配置 YUQUE_TOKEN 工具才能正常工作
 
 ### v1.6.5
 
