@@ -4,7 +4,6 @@
 [![build status][travis-image]][travis-url]
 [![Test coverage][codecov-image]][codecov-url]
 [![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 
 [npm-image]: https://img.shields.io/npm/v/yuque-hexo.svg?style=flat-square
@@ -15,8 +14,6 @@
 [codecov-url]: https://codecov.io/gh/x-cold/yuque-hexo
 [david-image]: https://img.shields.io/david/x-cold/yuque-hexo.svg?style=flat-square
 [david-url]: https://david-dm.org/x-cold/yuque-hexo
-[snyk-image]: https://snyk.io/test/npm/yuque-hexo/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/yuque-hexo
 [download-image]: https://badgen.net/npm/dt/yuque-hexo
 [download-url]: https://npmjs.org/package/yuque-hexo
 
