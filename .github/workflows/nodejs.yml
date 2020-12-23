@@ -35,8 +35,8 @@ jobs:
 
     - name: Continuous Integration
       run: npm run ci
+      env:
+        YUQUE_TOKEN: ${{secrets.YUQUE_TOKEN}}
 
     - name: Code Coverage
       uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
