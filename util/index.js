@@ -2,7 +2,18 @@
 
 const moment = require('moment');
 const lodash = require('lodash');
-const prettier = require('prettier');
+const out = require('../lib/out');
+
+const formatMarkdown = (() => {
+  let prettier;
+  try {
+    prettier = require('prettier');
+    return body => prettier.format(body, { parser: 'markdown' });
+  } catch (error) {
+    out.warn('Node 8 doesn\'t support prettier@latest (see: https://github.com/prettier/eslint-config-prettier/issues/140), the markdown will not be formated.');
+    return body => body;
+  }
+})();
 
 /**
  * 格式化 markdown 中的 tags
@@ -56,7 +67,7 @@ function formatRaw(body) {
     .replace(multiBrEnd, '<br />\n')
     .replace(brBug, '\n')
     .replace(emptyAnchor, '');
-  return prettier.format(body, { parser: 'markdown' });
+  return formatMarkdown(body);
 }
 
 exports.formatRaw = formatRaw;
