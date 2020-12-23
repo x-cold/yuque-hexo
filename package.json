@@ -1,6 +1,6 @@
 {
   "name": "yuque-hexo",
-  "version": "1.6.5",
+  "version": "1.7.0",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
   "scripts": {

@@ -18,7 +18,7 @@ class SyncCommand extends Command {
     }
 
     // clear previous directory.
-    if (initConfig.lastGenerate === '') {
+    if (initConfig.lastGeneratePath === '') {
       out.info('clear previous directory.');
       cleaner.cleanPosts();
     }

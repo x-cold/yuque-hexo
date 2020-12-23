@@ -17,6 +17,7 @@ class CleanCommand extends Command {
     }
     cleaner.cleanPosts();
     cleaner.clearCache();
+    cleaner.clearLastGenerate();
     out.info('yuque-hexo clean done!');
   }
 }

@@ -9,7 +9,7 @@ const token = process.env.YUQUE_TOKEN;
 const defaultConfig = {
   postPath: 'source/_posts/yuque',
   cachePath: 'yuque.json',
-  lastGenerate: '',
+  lastGeneratePath: '',
   mdNameFormat: 'title',
   baseUrl: 'https://www.yuque.com/api/v2/',
   token,

@@ -65,6 +65,7 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | ------------- | ------------------------------------ | -------------------- |
 | postPath      | 文档同步后生成的路径                 | source/\_posts/yuque |
 | cachePath     | 文档下载缓存文件                     | yuque.json           |
+| lastGeneratePath | 上一次同步结束的时间戳             |                       |
 | mdNameFormat  | 文件名命名方式 (title / slug)        | title                |
 | adapter       | 文档生成格式 (hexo/markdown)         | hexo                 |
 | concurrency   | 下载文章并发数                       | 5                    |
@@ -151,6 +152,12 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 - yuque to github repo: [txd-team/monthly](https://github.com/txd-team/monthly/blob/master/package.json)
 
 # Changelog
+
+### v1.7.0
+
+- 🔥 支持配置 lastGeneratePath，同步文章后会记录一个时间戳，下一次同步文档时不再清空全部文档，只同步修改时间大于这个时间戳的文档
+- 🔥 支持语雀提示区块语法
+- 🐸 修复 front-matter 中 “:” 等特殊字符会导致文章无法正常生成
 
 ### v1.6.5
 

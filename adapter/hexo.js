@@ -3,14 +3,14 @@
 const ejs = require('ejs');
 const Entities = require('html-entities').AllHtmlEntities;
 const FrontMatter = require('hexo-front-matter');
-const { formatDate, formatRaw, formatTags, formatList } = require('../util');
+const { formatDate, formatRaw } = require('../util');
 
 const entities = new Entities();
 // 背景色区块支持
 const colorBlocks = {
-  ':::tips\n': `<div style="background: #FFFBE6;padding:10px;border: 1px solid #C3C3C3;border-radius:5px;margin-bottom:5px;">`,
-  ':::danger\n': `<div style="background: #FFF3F3;padding:10px;border: 1px solid #DEB8BE;border-radius:5px;margin-bottom:5px;">`,
-  ':::info\n': `<div style="background: #E8F7FF;padding:10px;border: 1px solid #ABD2DA;border-radius:5px;margin-bottom:5px;">`,
+  ':::tips\n': '<div style="background: #FFFBE6;padding:10px;border: 1px solid #C3C3C3;border-radius:5px;margin-bottom:5px;">',
+  ':::danger\n': '<div style="background: #FFF3F3;padding:10px;border: 1px solid #DEB8BE;border-radius:5px;margin-bottom:5px;">',
+  ':::info\n': '<div style="background: #E8F7FF;padding:10px;border: 1px solid #ABD2DA;border-radius:5px;margin-bottom:5px;">',
   '\\s+:::': '</div>',
 };
 
@@ -33,7 +33,7 @@ function parseMatter(body) {
   try {
     // front matter信息的<br/>换成 \n
     const regex = /(title:|layout:|tags:|date:|categories:){1}(\S|\s)+?---/gi;
-    body = body.replace(regex, (a) =>
+    body = body.replace(regex, a =>
       a.replace(/(<br \/>|<br>|<br\/>)/gi, '\n')
     );
     // 支持提示区块语法
@@ -60,7 +60,7 @@ function parseMatter(body) {
  * @param {Object} post 文章
  * @return {String} text
  */
-module.exports = function (post) {
+module.exports = function(post) {
   // matter 解析
   const parseRet = parseMatter(post.body);
   const { body, ...data } = parseRet;
@@ -74,8 +74,8 @@ module.exports = function (post) {
     urlname,
     date,
     ...data,
-    tags: tags,
-    categories: categories,
+    tags,
+    categories,
   };
   const text = ejs.render(template, {
     raw,
