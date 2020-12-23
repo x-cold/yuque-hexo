@@ -24,7 +24,7 @@ describe('hexo project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(stdout.includes('remove empty yuque local cache:'));
+      assert(stdout.includes('remove empty yuque.json'));
       assert(code === 0);
     });
 
@@ -54,7 +54,7 @@ describe('hexo project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(!stdout.includes('remove empty yuque local cache:'));
+      assert(!stdout.includes('remove empty yuque.json'));
       assert(code === 0);
     });
   });
@@ -80,7 +80,7 @@ describe('markdown project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(stdout.includes('remove empty yuque local cache:'));
+      assert(stdout.includes('remove empty yuque.json'));
       assert(code === 0);
     });
 
@@ -110,7 +110,7 @@ describe('markdown project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(!stdout.includes('remove empty yuque local cache:'));
+      assert(!stdout.includes('remove empty yuque.json'));
       assert(code === 0);
     });
   });
