@@ -24,11 +24,11 @@ describe('hexo project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(stdout.includes('WARNING'));
+      assert(stdout.includes('remove empty yuque local cache:'));
       assert(code === 0);
     });
 
-    it('yuque-hexo without cache', async () => {
+    it('yuque-hexo sync without cache', async () => {
       const { stdout, code } = await coffee
         .fork(myBin, [ 'sync' ], { cwd })
         .end();
@@ -54,7 +54,7 @@ describe('hexo project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(!stdout.includes('WARNING'));
+      assert(stdout.includes('remove empty yuque local cache:'));
       assert(code === 0);
     });
   });
@@ -80,11 +80,11 @@ describe('markdown project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(stdout.includes('WARNING'));
+      assert(stdout.includes('remove empty yuque local cache:'));
       assert(code === 0);
     });
 
-    it('yuque-hexo without cache', async () => {
+    it('yuque-hexo sync without cache', async () => {
       const { stdout, code } = await coffee
         .fork(myBin, [ 'sync' ], { cwd })
         .end();
@@ -110,7 +110,7 @@ describe('markdown project test', () => {
         .end();
       console.log(stdout);
       assert(stdout.includes('yuque-hexo clean done!'));
-      assert(!stdout.includes('WARNING'));
+      assert(!stdout.includes('remove empty yuque local cache:'));
       assert(code === 0);
     });
   });
