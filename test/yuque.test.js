@@ -60,7 +60,6 @@ describe('hexo project test', () => {
   });
 });
 
-
 describe('markdown project test', () => {
   const myBin = require.resolve('../bin/yuque-hexo');
   const cwd = path.join(__dirname, 'markdown-project');

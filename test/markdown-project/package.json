@@ -6,6 +6,7 @@
     "repo": "blog",
     "postPath": "report",
     "mdNameFormat": "title",
-    "adapter": "markdown"
+    "adapter": "markdown",
+    "lastGeneratePath": "./yuque-hexo-last-generate-timestamp.txt"
   }
 }
