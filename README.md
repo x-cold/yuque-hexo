@@ -23,6 +23,8 @@ A downloader for articles from yuque（语雀知识库同步工具）
 
 ## Premise
 
+> 建议使用 Node.js >= 12 
+
 事先拥有一个 [hexo](https://github.com/hexojs/hexo) 项目，并在 `package.json` 中配置相关信息，可参考 [例子](#Example)。
 
 ## Config
