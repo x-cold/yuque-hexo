@@ -1,0 +1,12 @@
+{
+  "name": "your-hexo-project",
+  "yuqueConfig": {
+    "baseUrl": "https://www.yuque.com/api/v2",
+    "login": "yinzhi",
+    "repo": "yuque-hexo-demo",
+    "postPath": "report",
+    "mdNameFormat": "title",
+    "adapter": "custom.adapter.js",
+    "lastGeneratePath": "./yuque-hexo-last-generate-timestamp.txt"
+  }
+}
