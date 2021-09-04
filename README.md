@@ -1,15 +1,15 @@
 # yuque-hexo
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+[![build status][gitflow-image]][gitflow-url]
 [![Test coverage][codecov-image]][codecov-url]
 [![David deps][david-image]][david-url]
 [![npm download][download-image]][download-url]
 
 [npm-image]: https://img.shields.io/npm/v/yuque-hexo.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/yuque-hexo
-[travis-image]: https://img.shields.io/travis/x-cold/yuque-hexo.svg?style=flat-square
-[travis-url]: https://travis-ci.org/x-cold/yuque-hexo
+[gitflow-image]: https://github.com/x-cold/yuque-hexo/actions/workflows/nodejs.yml/badge.svg?branch=master
+[gitflow-url]: https://github.com/x-cold/yuque-hexo/actions/workflows/nodejs.yml
 [codecov-image]: https://codecov.io/gh/x-cold/yuque-hexo/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/x-cold/yuque-hexo
 [david-image]: https://img.shields.io/david/x-cold/yuque-hexo.svg?style=flat-square
@@ -65,7 +65,7 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | ------------- | ------------------------------------ | -------------------- |
 | postPath      | 文档同步后生成的路径                 | source/\_posts/yuque |
 | cachePath     | 文档下载缓存文件                     | yuque.json           |
-| lastGeneratePath | 上一次同步结束的时间戳             |                       |
+| lastGeneratePath | 上一次同步结束的时间戳的文件             |                       |
 | mdNameFormat  | 文件名命名方式 (title / slug)        | title                |
 | adapter       | 文档生成格式 (hexo/markdown)         | hexo                 |
 | concurrency   | 下载文章并发数                       | 5                    |

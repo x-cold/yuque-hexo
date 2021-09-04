@@ -16,7 +16,7 @@ const Command = require('..');
       interval: 3600000, // For how long to cache latest version (default: 1 day)
     });
   } catch (err) {
-    out.error(`Failed to check for updates: ${err}`);
+    out.warn(`Failed to check for updates: ${err}`);
   }
 
   if (update) {
