@@ -9,7 +9,7 @@ describe('hexo project test', () => {
   const cwd = path.join(__dirname, 'hexo-project');
   it('yuque-hexo --help', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['--help'], { cwd })
+      .fork(myBin, [ '--help' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('Usage: yuque-hexo <command>'));
@@ -18,7 +18,7 @@ describe('hexo project test', () => {
 
   it('yuque-hexo clean with warning', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['clean'], { cwd })
+      .fork(myBin, [ 'clean' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('yuque-hexo clean done!'));
@@ -28,7 +28,7 @@ describe('hexo project test', () => {
 
   it('yuque-hexo sync without cache', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['sync'], { cwd })
+      .fork(myBin, [ 'sync' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('download article body'));
@@ -38,7 +38,7 @@ describe('hexo project test', () => {
 
   it('yuque-hexo sync use cache', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['sync'], { cwd })
+      .fork(myBin, [ 'sync' ], { cwd })
       .end();
     console.log(stdout);
     assert(!stdout.includes('download article body'));
@@ -48,7 +48,7 @@ describe('hexo project test', () => {
 
   it('yuque-hexo clean', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['clean'], { cwd })
+      .fork(myBin, [ 'clean' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('yuque-hexo clean done!'));
@@ -62,7 +62,7 @@ describe('markdown project test', () => {
   const cwd = path.join(__dirname, 'markdown-project');
   it('yuque-hexo --help', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['--help'], { cwd })
+      .fork(myBin, [ '--help' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('Usage: yuque-hexo <command>'));
@@ -71,7 +71,7 @@ describe('markdown project test', () => {
 
   it('yuque-hexo clean with warning', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['clean'], { cwd })
+      .fork(myBin, [ 'clean' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('yuque-hexo clean done!'));
@@ -81,7 +81,7 @@ describe('markdown project test', () => {
 
   it('yuque-hexo sync without cache', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['sync'], { cwd })
+      .fork(myBin, [ 'sync' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('download article body'));
@@ -91,7 +91,7 @@ describe('markdown project test', () => {
 
   it('yuque-hexo sync use cache', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['sync'], { cwd })
+      .fork(myBin, [ 'sync' ], { cwd })
       .end();
     console.log(stdout);
     assert(!stdout.includes('download article body'));
@@ -101,7 +101,7 @@ describe('markdown project test', () => {
 
   it('yuque-hexo clean', async () => {
     const { stdout, code } = await coffee
-      .fork(myBin, ['clean'], { cwd })
+      .fork(myBin, [ 'clean' ], { cwd })
       .end();
     console.log(stdout);
     assert(stdout.includes('yuque-hexo clean done!'));
