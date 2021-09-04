@@ -55,7 +55,8 @@ A downloader for articles from yuque（语雀知识库同步工具）
     "login": "yinzhi",
     "repo": "blog",
     "onlyPublished": false,
-    "onlyPublic": false
+    "onlyPublic": false,
+    "lastGeneratePath": "lastGeneratePath.log"
   }
 }
 ```
