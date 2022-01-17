@@ -4,6 +4,9 @@ const ejs = require('ejs');
 const Entities = require('html-entities').AllHtmlEntities;
 const FrontMatter = require('hexo-front-matter');
 const { formatDate, formatRaw } = require('../util');
+const img2Cos = require('../util/img2cdn');
+const config = require('../config');
+
 
 const entities = new Entities();
 // 背景色区块支持
@@ -60,7 +63,11 @@ function parseMatter(body) {
  * @param {Object} post 文章
  * @return {String} text
  */
-module.exports = function(post) {
+module.exports = async function(post) {
+  // 语雀img转成自己的cdn图片
+  if (config.imgCdn.enabled) {
+    post = await img2Cos(post);
+  }
   // matter 解析
   const parseRet = parseMatter(post.body);
   const { body, ...data } = parseRet;

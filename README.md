@@ -29,7 +29,7 @@ A downloader for articles from yuque（语雀知识库同步工具）
 
 ## Config
 
-### 配置 TOKEN
+### 配置 YUQUE_TOKEN
 
 出于对知识库安全性的调整，使用第三方 API 访问知识库，需要传入环境变量 YUQUE_TOKEN，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 yuque-hexo 的进程有两种方式：
 
@@ -37,6 +37,17 @@ A downloader for articles from yuque（语雀知识库同步工具）
 - 命令执行时传入环境变量
   - mac / linux: `YUQUE_TOKEN=xxx yuque-hexo sync`
   - windows: `set YUQUE_TOKEN=xxx && yuque-hexo sync`
+
+### 配置 腾讯云对象存储TOKEN(可选)
+语雀的url存在防盗链的问题，直接部署可能导致图片无法加载。
+如果需要语雀URL上传到腾讯云的COS中并替换原链接，就需要配置上传密钥。
+
+访问[API密钥管理](https://console.cloud.tencent.com/cam/capi) 获取密钥，然后传入密钥到yuque-hexo
+- 在设置YUQUE_TOKEN的基础上配置SECRET_ID和SECRET_KEY
+- 命令执行时传入环境变量
+  - mac / linux: `YUQUE_TOKEN=xxx SECRET_ID=xxx SECRET_KEY=xxx yuque-hexo sync`
+  - windows: `set YUQUE_TOKEN=xxx SECRET_ID=xxx SECRET_KEY=xxx && yuque-hexo sync`
+
 
 ### 配置知识库
 
@@ -56,7 +67,13 @@ A downloader for articles from yuque（语雀知识库同步工具）
     "repo": "blog",
     "onlyPublished": false,
     "onlyPublic": false,
-    "lastGeneratePath": "lastGeneratePath.log"
+    "lastGeneratePath": "lastGeneratePath.log",
+    "imgCdn": {
+      "enabled": false,
+      "bucket": "",
+      "region": "",
+      "prefixKey": ""
+    }
   }
 }
 ```
@@ -74,8 +91,27 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | repo          | 语雀仓库短名称，也称为语雀知识库路径 | -                    |
 | onlyPublished | 只展示已经发布的文章                 | false                |
 | onlyPublic    | 只展示公开文章                       | false                |
-
+| imgCdn        | 语雀图片转CDN配置                    |                |
 > slug 是语雀的永久链接名，一般是几个随机字母。
+
+imgCdn 语雀图片转COS（对象存储）配置说明
+
+注意：开启后会将匹配到的所有的图片都上传到COS
+
+| 参数名        | 含义                                 | 默认值               |
+| ------------- | ------------------------------------ | -------------------- |
+| enabled       | 是否开启                           | false |
+| bucket        | 腾讯COS的bucket名称                     | -          |
+| region        | 腾讯COS的region(地域名称)               |  -                     |
+| prefixKey     | 文件前缀                                | -                |
+> prefixKey 说明
+> 
+> 如果需要将图片上传到COS的根目录，那么prefixKey不用配置。
+> 
+> 如果想上传到指定目录blog/image下，则需要配置prefixKey为"prefixKey": "blog/image"。
+>
+> 目录名前后都不需要加斜杠
+
 
 ## Install
 
@@ -143,8 +179,10 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
   more detail
   ```
+- 为什么选择腾讯COS作为图床：腾讯的COS费用相对便宜，对于博客来说是非常划算且方便的。
+当然，如果想用其他图床，可以参考源码中实现方式，自行修改配置。
 
-- 如果遇到上传到语雀的图片无法加载的问题，可以参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
+- 如果遇到上传到语雀的图片无法加载的问题，可以考虑开启imgCdn配置或者参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
 
 # Example
 
