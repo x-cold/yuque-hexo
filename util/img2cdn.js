@@ -85,15 +85,12 @@ async function hasObject(fileName) {
     out.error('请检查COS配置');
     process.exit(-1);
   }
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     cos.headObject({
       Bucket: bucket, // 存储桶名字（必须）
       Region: region, // 存储桶所在地域，必须字段
       Key: `${prefixKey}/${fileName}`, //  文件名  必须
     }, function(err, data) {
-      if (err) {
-        reject(err);
-      }
       if (data) {
         const url = `https://${bucket}.cos.${region}.myqcloud.com/${prefixKey}/${fileName}`;
         resolve(url);
