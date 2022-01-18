@@ -1,5 +1,5 @@
 {
-  "name": "yuque-hexo-with-cos",
+  "name": "yuque-hexo",
   "version": "1.8.0",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
