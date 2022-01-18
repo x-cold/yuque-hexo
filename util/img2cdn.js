@@ -136,6 +136,7 @@ async function img2Cos(article) {
   if (!article.body && !article.title) return article;
   // 1。从文章中获取语雀的图片URL列表
   const matchYuqueImgUrlList = article.body.match(imageUrlRegExp);
+  if (!matchYuqueImgUrlList) return article;
   const promiseList = matchYuqueImgUrlList.map(async matchYuqueImgUrl => {
     // 获取真正的图片url
     const yuqueImgUrl = getImgUrl(matchYuqueImgUrl);
