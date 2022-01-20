@@ -175,7 +175,7 @@ async function img2Cos(article) {
   const urlList = await Promise.all(promiseList);
   urlList.forEach(function(url) {
     if (url) {
-      article.body = article.body.replace(url.originalUrl, `![image](${url.url})`);
+      article.body = article.body.replace(url.originalUrl, `![](${url.url})`);
       out.info(`replace ${url.yuqueRealImgUrl} to ${url.url}`);
     }
   });
