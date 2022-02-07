@@ -23,8 +23,9 @@ const imageUrlRegExp = /!\[(.*?)]\((.*?)\)/mg;
 
 /**
  * 将图片转成buffer
- * @param yuqueImgUrl
- * @return {Promise<Buffer>}
+ *
+ * @param {string} yuqueImgUrl 语雀图片url
+ * @return {Promise<Buffer>} 文件buffer
  */
 async function img2Buffer(yuqueImgUrl) {
   return await new Promise(async function(resolve) {
@@ -51,8 +52,9 @@ async function img2Buffer(yuqueImgUrl) {
 
 /**
  * 从markdown格式的url中获取url
- * @param markdownImgUrl
- * @return {string}
+ *
+ * @param {string} markdownImgUrl markdown语法图片
+ * @return {string} 图片url
  */
 function getImgUrl(markdownImgUrl) {
   const _temp = markdownImgUrl.replace(/\!\[(.*?)]\(/, '');
@@ -64,9 +66,10 @@ function getImgUrl(markdownImgUrl) {
 
 /**
  * 根据文件内容获取唯一文件名
- * @param imgBuffer
- * @param yuqueImgUrl
- * @return {Promise<string>}
+ *
+ * @param {Buffer} imgBuffer 文件buffer
+ * @param {string} yuqueImgUrl 语雀图片url
+ * @return {Promise<string>} 图片文件名称
  */
 async function getFileName(imgBuffer, yuqueImgUrl) {
   return new Promise(resolve => {
@@ -81,8 +84,9 @@ async function getFileName(imgBuffer, yuqueImgUrl) {
 
 /**
  * 检查COS是否已经存在图片，存在则返回url
- * @param fileName
- * @return {Promise<string>}
+ *
+ * @param {string} fileName 文件名
+ * @return {Promise<string>} 图片url
  */
 async function hasObject(fileName) {
   if (!bucket.length || !region.length) {
@@ -108,9 +112,10 @@ async function hasObject(fileName) {
 
 /**
  * 上传图片到COS
- * @param imgBuffer
- * @param fileName
- * @return {Promise<string>}
+ *
+ * @param {Buffer} imgBuffer 文件buffer
+ * @param {string} fileName 文件名
+ * @return {Promise<string>} 图床的图片url
  */
 async function uploadImg(imgBuffer, fileName) {
   return new Promise((resolve, reject) => {
@@ -132,9 +137,10 @@ async function uploadImg(imgBuffer, fileName) {
 }
 
 /**
- * 将aiticle中body中的语雀url进行替换
- * @param article
- * @return {*}
+ * 将article中body中的语雀url进行替换
+ *
+ * @param {*} article 文章
+ * @return {*} 文章
  */
 async function img2Cos(article) {
   if (!article.body && !article.title) return article;
