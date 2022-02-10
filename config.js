@@ -19,6 +19,12 @@ const defaultConfig = {
   concurrency: 5,
   onlyPublished: false,
   onlyPublic: false,
+  imgCdn: {
+    enabled: false,
+    bucket: '',
+    region: '',
+    prefixKey: '',
+  },
 };
 
 function loadConfig() {
