@@ -130,7 +130,7 @@ imgCdn 语雀图片转图床配置说明
 
 > prefixKey 说明
 >
-> 如果需要将图片上传到图床的根目录，那么prefixKey不用配置。
+> 如果需要将图片上传到bucket的根目录，那么prefixKey不用配置。
 >
 > 如果想上传到指定目录blog/image下，则需要配置prefixKey为"prefixKey": "blog/image"。
 >
