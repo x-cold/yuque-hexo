@@ -100,7 +100,7 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | imgCdn        | 语雀图片转CDN配置                    |                |
 > slug 是语雀的永久链接名，一般是几个随机字母。
 
-imgCdn 语雀图片转COS（对象存储）配置说明
+imgCdn 语雀图片转图床配置说明
 
 注意：开启后会将匹配到的所有的图片都上传到COS
 
