@@ -26,6 +26,7 @@
   "homepage": "https://github.com/x-cold/yuque-hexo#readme",
   "dependencies": {
     "@yuque/sdk": "^1.1.1",
+    "ali-oss": "6.8.0",
     "chalk": "^2.4.1",
     "common-bin": "^2.7.3",
     "cos-nodejs-sdk-v5": "^2.11.6",
@@ -39,6 +40,7 @@
     "mkdirp": "^1.0.0",
     "moment": "^2.22.2",
     "prettier": "^2.0.4",
+    "qiniu": "^7.4.0",
     "queue": "^4.5.0",
     "rimraf": "^2.6.2",
     "superagent": "^7.0.2",

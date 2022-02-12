@@ -21,6 +21,8 @@ const defaultConfig = {
   onlyPublic: false,
   imgCdn: {
     enabled: false,
+    imageBed: 'qiniu',
+    host: '',
     bucket: '',
     region: '',
     prefixKey: '',

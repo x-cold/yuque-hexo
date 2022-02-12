@@ -1,7 +1,7 @@
 'use strict';
 
 const { formatRaw } = require('../util');
-const img2Cos = require('../util/img2cdn');
+const img2Cdn = require('../util/img2cdn');
 const config = require('../config');
 
 /**
@@ -13,7 +13,7 @@ const config = require('../config');
 module.exports = async function(post) {
   // 语雀img转成自己的cdn图片
   if (config.imgCdn.enabled) {
-    post = await img2Cos(post);
+    post = await img2Cdn(post);
   }
   const { body } = post;
   const raw = formatRaw(body);
