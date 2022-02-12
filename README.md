@@ -38,11 +38,15 @@ A downloader for articles from yuque（语雀知识库同步工具）
   - mac / linux: `YUQUE_TOKEN=xxx yuque-hexo sync`
   - windows: `set YUQUE_TOKEN=xxx && yuque-hexo sync`
 
-### 配置 腾讯云对象存储TOKEN(可选)
+### 配置 图床TOKEN(可选)
 语雀的url存在防盗链的问题，直接部署可能导致图片无法加载。
-如果需要语雀URL上传到腾讯云的COS中并替换原链接，就需要配置上传密钥。
+如果需要语雀URL上传到图床中并替换原链接，就需要配置上传密钥。
 
-访问[API密钥管理](https://console.cloud.tencent.com/cam/capi) 获取密钥，然后传入密钥到yuque-hexo
+访问图床的密钥管理获取密钥，然后传入密钥到yuque-hexo
+- 腾讯云[API密钥管理](https://console.cloud.tencent.com/cam/capi)
+- 阿里云[API密钥管理](https://ram.console.aliyun.com/manage/ak)
+- 七牛云[API密钥管理](https://portal.qiniu.com/user/key)
+
 - 在设置YUQUE_TOKEN的基础上配置SECRET_ID和SECRET_KEY
 - 命令执行时传入环境变量
   - mac / linux: `YUQUE_TOKEN=xxx SECRET_ID=xxx SECRET_KEY=xxx yuque-hexo sync`
@@ -70,6 +74,8 @@ A downloader for articles from yuque（语雀知识库同步工具）
     "lastGeneratePath": "lastGeneratePath.log",
     "imgCdn": {
       "enabled": false,
+      "imageBed": "qiniu",
+      "host": "",
       "bucket": "",
       "region": "",
       "prefixKey": ""
@@ -101,9 +107,17 @@ imgCdn 语雀图片转COS（对象存储）配置说明
 | 参数名        | 含义                                 | 默认值               |
 | ------------- | ------------------------------------ | -------------------- |
 | enabled       | 是否开启                           | false |
+| imageBed      | 选择将图片上传的图床，目前支持腾讯云(cos)、阿里云(oss)和七牛云(qiniu)，默认使用七牛云                           | 'qiniu' |
+| host          | 使用七牛云图床时，需要指定CDN域名前缀
 | bucket        | 腾讯COS的bucket名称                     | -          |
 | region        | 腾讯COS的region(地域名称)               |  -                     |
 | prefixKey     | 文件前缀                                | -                |
+
+> host 说明
+>
+> 由于七牛云默认使用CND进行图片外链访问（默认提供30天的临时域名或者添加自定义CDN域名），所以需要指定访问的域名前缀
+> 例如：'host': 'http://image.1874.cool'，域名后面不需要加斜杠
+
 > prefixKey 说明
 > 
 > 如果需要将图片上传到COS的根目录，那么prefixKey不用配置。
@@ -149,7 +163,8 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 ```
 
 ## Best practice
-
+- [语雀云端写作Hexo+Github Actions+COS持续集成](https://www.yuque.com/1874w/1874.cool/roeayv)
+- [yuque-hexo插件语雀图片防盗链限制的解决方案](https://1874.cool/osar7h/)
 - [Hexo 博客终极玩法：云端写作，自动部署](https://www.yuque.com/u46795/blog/dlloc7)
 - [Hexo：语雀云端写作 Github Actions 持续集成](https://www.zhwei.cn/hexo-github-actions-yuque/)
 
@@ -179,10 +194,8 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
   more detail
   ```
-- 为什么选择腾讯COS作为图床：腾讯的COS费用相对便宜，对于博客来说是非常划算且方便的。
-当然，如果想用其他图床，可以参考源码中实现方式，自行修改配置。
 
-- 如果遇到上传到语雀的图片无法加载的问题，可以考虑开启imgCdn配置或者参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
+- - 如果遇到上传到语雀的图片无法加载的问题， 可以考虑开启imgCdn配置或者参考这个处理方式[yuque-hexo插件语雀图片防盗链限制的解决方案](https://1874.cool/osar7h/)或者参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
 
 # Example
 
