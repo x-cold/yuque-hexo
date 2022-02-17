@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const Entities = require('html-entities').AllHtmlEntities;
 const FrontMatter = require('hexo-front-matter');
 const { formatDate, formatRaw } = require('../util');
-const img2Cos = require('../util/img2cdn');
+const img2Cdn = require('../util/img2cdn');
 const config = require('../config');
 
 
@@ -66,7 +66,7 @@ function parseMatter(body) {
 module.exports = async function(post) {
   // 语雀img转成自己的cdn图片
   if (config.imgCdn.enabled) {
-    post = await img2Cos(post);
+    post = await img2Cdn(post);
   }
   // matter 解析
   const parseRet = parseMatter(post.body);
