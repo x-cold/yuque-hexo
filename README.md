@@ -174,7 +174,6 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 ## Best practice
 - [语雀云端写作Hexo+Github Actions+COS持续集成](https://www.yuque.com/1874w/1874.cool/roeayv)
-- [yuque-hexo插件语雀图片防盗链限制的解决方案](https://1874.cool/osar7h/)
 - [Hexo 博客终极玩法：云端写作，自动部署](https://www.yuque.com/u46795/blog/dlloc7)
 - [Hexo：语雀云端写作 Github Actions 持续集成](https://www.zhwei.cn/hexo-github-actions-yuque/)
 
@@ -214,8 +213,11 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
+### v1.9.0
+- 🔥 支持腾讯云/阿里云/七牛云图床链接替换语雀链接
+
 ### v1.8.0
-- 🔥 支持自定义的适配器 adapter，具体查看 [配置示例](https://github.com/x-cold/yuque-hexo/tree/master/test/custom-adapter-project)，如果需要实现类似图床上传的功能，可以参考[文章](https://juejin.cn/post/6875192087705288718)
+- 🔥 支持自定义的适配器 adapter，具体查看 [配置示例](https://github.com/x-cold/yuque-hexo/tree/master/test/custom-adapter-project)
 
 ### v1.7.0
 
