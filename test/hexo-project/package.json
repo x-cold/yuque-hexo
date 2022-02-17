@@ -2,7 +2,7 @@
   "name": "your-hexo-project",
   "yuqueConfig": {
     "baseUrl": "https://www.yuque.com/api/v2",
-    "login": "1874w",
+    "login": "yinzhi",
     "repo": "yuque-hexo-demo",
     "mdNameFormat": "title",
     "postPath": "source/_posts/yuque"
