@@ -6,7 +6,7 @@ const config = require('../config');
 const out = require('../lib/out');
 const ImageBed = require('./imageBeds');
 
-const imageBed = ImageBed.getInstance(config.imgCdn);
+const imageBed = config.imgCdn.enabled ? ImageBed.getInstance(config.imgCdn) : null;
 
 // 获取语雀的图片链接的正则表达式
 const imageUrlRegExp = /!\[(.*?)]\((.*?)\)/mg;

@@ -213,6 +213,9 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
+### v1.9.1
+- 修复不使用图床配置时报错的问题
+
 ### v1.9.0
 - 🔥 支持腾讯云/阿里云/七牛云图床链接替换语雀链接
 
