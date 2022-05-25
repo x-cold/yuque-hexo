@@ -78,8 +78,19 @@ exports.formatRaw = formatRaw;
  * @param {*} post 文章
  * @return {Boolean} isPost
  */
-function isPost(post) {
-  return lodash.isObject(post) && post.body && post.title;
+ function isPost(post) {
+
+  // 空处理
+  if (!(lodash.isObject(post) && post.body && post.title)) {
+    return false;
+  }
+
+  // 兼容body_draft 新的body内容 https://www.yuque.com/yuque/developer/docdetailserializer
+  if (post.body_draft) {
+    post.body = post.body_draft;
+  }
+
+  return true;
 }
 
 exports.isPost = isPost;
