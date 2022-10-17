@@ -3,6 +3,7 @@
 // 七牛云图床
 const qiniu = require('qiniu');
 const out = require('../../lib/out');
+const { transformRes } = require('../index');
 
 const secretId = process.env.SECRET_ID;
 const secretKey = process.env.SECRET_KEY;
@@ -46,8 +47,7 @@ class QiniuClient {
     return await new Promise(resolve => {
       this.bucketManager.stat(this.config.bucket, `${this.config.prefixKey}/${fileName}`, (err, respBody, respInfo) => {
         if (err) {
-          out.error(`上传图片失败，请检查: ${err}`);
-          process.exit(-1);
+          out.warn(`检查图片信息时出错: ${transformRes(err)}`);
         } else {
           if (respInfo.statusCode === 200) {
             resolve(`${this.config.host}/${this.config.prefixKey}/${fileName}`);
@@ -71,13 +71,13 @@ class QiniuClient {
       this.formUploader.put(this.uploadToken, `${this.config.prefixKey}/${fileName}`, imgBuffer, this.putExtra, (respErr,
         respBody, respInfo) => {
         if (respErr) {
-          out.error(`上传图片失败，请检查: ${respErr}`);
+          out.error(`上传图片失败，请检查: ${transformRes(respErr)}`);
           process.exit(-1);
         }
         if (respInfo.statusCode === 200) {
           resolve(`${this.config.host}/${this.config.prefixKey}/${fileName}`);
         } else {
-          out.error(`上传图片失败，请检查: ${respInfo}`);
+          out.error(`上传图片失败，请检查: ${transformRes(respInfo)}`);
           process.exit(-1);
         }
       });

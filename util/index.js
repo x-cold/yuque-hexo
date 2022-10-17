@@ -95,3 +95,14 @@ function formatDate(date) {
 }
 
 exports.formatDate = formatDate;
+
+function transformRes(res) {
+  try {
+    if (lodash.isString(res)) return res;
+    return JSON.stringify(res);
+  } catch (e) {
+    return res;
+  }
+}
+
+exports.transformRes = transformRes;

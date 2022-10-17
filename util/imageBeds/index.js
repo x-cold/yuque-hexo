@@ -3,10 +3,12 @@
 const CosClient = require('./cos');
 const OssClient = require('./oss');
 const QiniuClient = require('./qiniu');
+const UPClient = require('./upyun');
+const GithubClient = require('./github');
 const out = require('../../lib/out');
 
 // 目前已适配图床列表
-const imageBedList = [ 'qiniu', 'cos', 'oss' ];
+const imageBedList = [ 'qiniu', 'cos', 'oss', 'upyun', 'github' ];
 
 class ImageBeds {
   constructor(config) {
@@ -39,6 +41,10 @@ class ImageBeds {
         return OssClient.getInstance(this.config);
       case 'qiniu':
         return QiniuClient.getInstance(this.config);
+      case 'upyun':
+        return UPClient.getInstance(this.config);
+      case 'github':
+        return GithubClient.getInstance(this.config);
       default:
         return QiniuClient.getInstance(this.config);
     }

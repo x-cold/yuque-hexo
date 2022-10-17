@@ -3,6 +3,7 @@
 // 阿里云图床
 const OSS = require('ali-oss');
 const out = require('../../lib/out');
+const { transformRes } = require('../index');
 
 const secretId = process.env.SECRET_ID;
 const secretKey = process.env.SECRET_KEY;
@@ -39,6 +40,7 @@ class OssClient {
       await this.imageBedInstance.head(`${this.config.prefixKey}/${fileName}`);
       return `https://${this.config.bucket}.${this.config.region}.aliyuncs.com/${this.config.prefixKey}/${fileName}`;
     } catch (e) {
+      out.warn(`检查图片信息时出错: ${transformRes(e)}`);
       return '';
     }
   }
@@ -55,7 +57,7 @@ class OssClient {
       const res = await this.imageBedInstance.put(`${this.config.prefixKey}/${fileName}`, imgBuffer);
       return res.url;
     } catch (e) {
-      out.error(`上传图片失败，请检查: ${e}`);
+      out.error(`上传图片失败，请检查: ${transformRes(e)}`);
       process.exit(-1);
     }
   }
