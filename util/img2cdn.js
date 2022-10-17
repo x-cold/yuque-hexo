@@ -22,6 +22,7 @@ async function img2Buffer(yuqueImgUrl) {
     try {
       await superagent
         .get(yuqueImgUrl)
+        .set('User-Agent', 'Mozilla/5.0')
         .buffer(true)
         .parse(res => {
           const buffer = [];
