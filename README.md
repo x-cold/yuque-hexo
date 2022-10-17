@@ -213,6 +213,9 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
+### v1.9.2
+- 修复上传图片到图床时可能由于用户代理缺失导致403问题
+
 ### v1.9.1
 - 修复不使用图床配置时报错的问题
 
