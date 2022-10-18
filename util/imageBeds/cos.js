@@ -38,7 +38,7 @@ class CosClient {
         Region: this.config.region, // 存储桶所在地域，必须字段
         Key: `${this.config.prefixKey}/${fileName}`, //  文件名  必须
       });
-      return `https://${this.config.bucket}.cos.${this.config.region}.myqcloud.com/c`;
+      return `https://${this.config.bucket}.cos.${this.config.region}.myqcloud.com/${this.config.prefixKey}/${fileName}`;
     } catch (e) {
       out.warn(`检查图片信息时出错: ${transformRes(e)}`);
       return '';
