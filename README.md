@@ -233,7 +233,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 # Changelog
 
-### v1.9.3
+### v1.9.4
 - 🔥 新增GitHub图床和又拍云图床
 
 ### v1.9.2
