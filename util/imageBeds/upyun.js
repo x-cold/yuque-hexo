@@ -3,7 +3,6 @@
 // 又拍云图床
 const upyun = require('upyun');
 const out = require('../../lib/out');
-const { transformRes } = require('../index');
 
 const secretId = process.env.SECRET_ID;
 const secretKey = process.env.SECRET_KEY;
@@ -47,7 +46,7 @@ class UPClient {
       }
       return '';
     } catch (e) {
-      out.error(`上传图片失败，请检查: ${transformRes(e)}`);
+      out.warn(`上传图片失败，请检查: ${e}`);
       return '';
     }
   }
@@ -65,11 +64,11 @@ class UPClient {
       if (res) {
         return `${this.config.host}/${this.config.prefixKey}/${fileName}`;
       }
-      out.error('上传图片失败，请检查又拍云配置');
-      process.exit(-1);
+      out.warn('上传图片失败，请检查又拍云配置');
+      return '';
     } catch (e) {
-      out.error(`上传图片失败，请检查: ${transformRes(e)}`);
-      process.exit(-1);
+      out.warn(`上传图片失败，请检查: ${e}`);
+      return '';
     }
   }
 }

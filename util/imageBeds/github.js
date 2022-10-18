@@ -51,6 +51,10 @@ class GithubClient {
           Authorization: `token ${secretKey}`,
         },
       });
+      if (result.status === 409) {
+        out.warn('由于github并发问题，图片上传失败');
+        return '';
+      }
       if (result.status === 200 || result.status === 201) {
         if (this.config.host) {
           return `${this.config.host}/gh/${secretId}/${this.config.bucket}/${this.config.prefixKey}/${fileName}`;
@@ -96,11 +100,8 @@ class GithubClient {
       const base64File = imgBuffer.toString('base64');
       const imgUrl = await this._fetch('PUT', fileName, base64File);
       if (imgUrl) return imgUrl;
-      out.error('上传图片失败，请检查');
-      process.exit(-1);
     } catch (e) {
-      out.error(`上传图片失败，请检查: ${transformRes(e)}`);
-      process.exit(-1);
+      out.warn(`上传图片失败，请检查: ${e}`);
     }
   }
 }

@@ -20,6 +20,7 @@ const defaultConfig = {
   onlyPublished: false,
   onlyPublic: false,
   imgCdn: {
+    concurrency: 0,
     enabled: false,
     imageBed: 'qiniu',
     host: '',

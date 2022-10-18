@@ -3,7 +3,6 @@
 // 腾讯云图床
 const COS = require('cos-nodejs-sdk-v5');
 const out = require('../../lib/out');
-const { transformRes } = require('../index');
 
 const secretId = process.env.SECRET_ID;
 const secretKey = process.env.SECRET_KEY;
@@ -40,7 +39,6 @@ class CosClient {
       });
       return `https://${this.config.bucket}.cos.${this.config.region}.myqcloud.com/${this.config.prefixKey}/${fileName}`;
     } catch (e) {
-      out.warn(`检查图片信息时出错: ${transformRes(e)}`);
       return '';
     }
   }
@@ -63,8 +61,8 @@ class CosClient {
       });
       return `https://${res.Location}`;
     } catch (e) {
-      out.error(`上传图片失败，请检查: ${transformRes(e)}`);
-      process.exit(-1);
+      out.warn(`上传图片失败，请检查: ${e}`);
+      return '';
     }
   }
 }

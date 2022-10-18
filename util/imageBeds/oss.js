@@ -57,8 +57,8 @@ class OssClient {
       const res = await this.imageBedInstance.put(`${this.config.prefixKey}/${fileName}`, imgBuffer);
       return res.url;
     } catch (e) {
-      out.error(`上传图片失败，请检查: ${transformRes(e)}`);
-      process.exit(-1);
+      out.warn(`上传图片失败，请检查: ${e}`);
+      return '';
     }
   }
 }

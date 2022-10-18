@@ -72,14 +72,14 @@ class QiniuClient {
       this.formUploader.put(this.uploadToken, `${this.config.prefixKey}/${fileName}`, imgBuffer, this.putExtra, (respErr,
         respBody, respInfo) => {
         if (respErr) {
-          out.error(`上传图片失败，请检查: ${transformRes(respErr)}`);
-          process.exit(-1);
+          out.warn(`上传图片失败，请检查: ${transformRes(respErr)}`);
+          resolve('');
         }
         if (respInfo.statusCode === 200) {
           resolve(`${this.config.host}/${this.config.prefixKey}/${fileName}`);
         } else {
-          out.error(`上传图片失败，请检查: ${transformRes(respInfo)}`);
-          process.exit(-1);
+          out.warn(`上传图片失败，请检查: ${transformRes(respInfo)}`);
+          resolve('');
         }
       });
     });
