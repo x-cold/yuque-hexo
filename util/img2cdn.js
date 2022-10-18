@@ -100,14 +100,17 @@ async function img2Cdn(article) {
     try {
       // 4。检查图床是否存在该文件
       let url = await imageBed.hasImage(fileName);
+      let exists = true;
       // 5。如果图床已经存在，直接替换；如果图床不存在，则先上传到图床，再将原本的语雀url进行替换
       if (!url) {
         url = await imageBed.uploadImg(imgBuffer, fileName);
+        exists = false;
       }
       return {
         originalUrl: matchYuqueImgUrl,
         yuqueRealImgUrl: yuqueImgUrl,
         url,
+        exists,
       };
     } catch (e) {
       out.error(`访问图床出错，请检查配置: ${e}`);
@@ -118,7 +121,11 @@ async function img2Cdn(article) {
   urlList.forEach(function(url) {
     if (url) {
       article.body = article.body.replace(url.originalUrl, `![](${url.url})`);
-      out.info(`replace ${url.yuqueRealImgUrl} to ${url.url}`);
+      if (url.exists) {
+        out.info(`图片已存在 skip: ${url.url}`);
+      } else {
+        out.info(`replace ${url.yuqueRealImgUrl} to ${url.url}`);
+      }
     }
   });
   return article;

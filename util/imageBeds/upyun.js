@@ -21,6 +21,7 @@ class UPClient {
     // 如果不指定协议，默认使用http
     if (!this.config.host.startsWith('http')) {
       this.config.host = `http://${this.config.bucket}`;
+      out.info(`图床域名：${this.config.host}`);
     }
     this.imageBedInstance = new upyun.Client(new upyun.Service(this.config.bucket, secretId, secretKey));
   }

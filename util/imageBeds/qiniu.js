@@ -19,6 +19,7 @@ class QiniuClient {
       out.error('使用七牛云时，需要在imgCdn中指定域名host');
       process.exit(-1);
     }
+    out.info(`图床域名：${this.config.host}`);
     const mac = new qiniu.auth.digest.Mac(secretId, secretKey);
     const putPolicy = new qiniu.rs.PutPolicy({ scope: this.config.bucket }); // 配置
     this.uploadToken = putPolicy.uploadToken(mac); // 获取上传凭证

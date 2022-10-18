@@ -12,6 +12,18 @@ const secretKey = process.env.SECRET_KEY;
 class GithubClient {
   constructor(config) {
     this.config = config;
+    this.init();
+  }
+
+  init() {
+    if (!this.config.host) {
+      out.warn('未指定加速域名，将使用默认域名：https://raw.githubusercontent.com');
+    }
+    // 如果指定了加速域名
+    if (this.config.host && this.config.host.includes('cdn.jsdelivr.net')) {
+      this.config.host = 'https://cdn.jsdelivr.net';
+      out.info(`图床域名：${this.config.host}`);
+    }
   }
 
   static getInstance(config) {
@@ -39,10 +51,16 @@ class GithubClient {
           Authorization: `token ${secretKey}`,
         },
       });
-      if (result.status === 200) {
-        return result.data.download_url;
+      if (result.status === 200 || result.status === 201) {
+        if (this.config.host) {
+          return `${this.config.host}/gh/${secretId}/${this.config.bucket}/${this.config.prefixKey}/${fileName}`;
+        }
+        if (method === 'GET') {
+          return result.data.download_url;
+        }
+        return result.data.content.download_url;
       }
-      out.warn(`请求图片失败，请检查: ${transformRes(result)}`);
+      method === 'PUT' && out.warn(`请求图片失败，请检查: ${transformRes(result)}`);
       return '';
     } catch (error) {
       out.warn(`请求图片失败，请检查: ${transformRes(error)}`);
@@ -78,6 +96,7 @@ class GithubClient {
       const base64File = imgBuffer.toString('base64');
       const imgUrl = await this._fetch('PUT', fileName, base64File);
       if (imgUrl) return imgUrl;
+      out.error('上传图片失败，请检查');
       process.exit(-1);
     } catch (e) {
       out.error(`上传图片失败，请检查: ${transformRes(e)}`);

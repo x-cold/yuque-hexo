@@ -130,6 +130,10 @@ imgCdn 语雀图片转图床配置说明
 > 
 > 例如 'host': `upyun.1874.cool`或 `https://upyun.1874.cool ` 
 
+> Github图床的默认域名是`raw.githubusercontent.com`，如果要使用jsdelivr进行加速，可以配置`host`为`cdn.jsdelivr.net`，
+> 
+> 例如 'host': `cdn.jsdelivr.net`
+
 > bucket和region说明
 > 
 > [获取腾讯云的bucket和region](https://console.cloud.tencent.com/cos/bucket)，示例：{ bucket: "blog", region: "ap-guangzhou" }
