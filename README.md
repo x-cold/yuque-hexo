@@ -158,6 +158,8 @@ imgCdn 语雀图片转图床配置说明
 >
 > 目录名前后都不需要加斜杠
 
+> 配置示例: [yuque-hexo配置示例](https://github.com/LetTTGACO/yuque-hexo-example)
+
 
 ## Install
 
@@ -232,6 +234,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 - yuque to hexo: [x-cold/blog](https://github.com/x-cold/blog/blob/master/package.json)
 - yuque to github repo: [txd-team/monthly](https://github.com/txd-team/monthly/blob/master/package.json)
+- [yuque-hexo配置示例](https://github.com/LetTTGACO/yuque-hexo-example)
 
 # Changelog
 
