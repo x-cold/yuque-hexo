@@ -35,10 +35,10 @@ class GithubClient {
 
   async _fetch(method, fileName, base64File) {
     const path = `https://api.github.com/repos/${secretId}/${this.config.bucket}/contents/${this.config.prefixKey}/${fileName}`;
-    const data = method === 'PUT' ? {
+    const data = method === 'PUT' ? JSON.stringify({
       message: 'yuque-hexo upload images',
       content: base64File,
-    } : null;
+    }) : null;
     try {
       const result = await urllib.request(path, {
         dataType: 'json',
@@ -46,7 +46,7 @@ class GithubClient {
         data,
         timeout: 60000,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/vnd.github.v3+json',
           'User-Agent': 'yuque-hexo',
           Authorization: `token ${secretKey}`,
         },
