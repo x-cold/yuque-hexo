@@ -26,7 +26,7 @@
   "homepage": "https://github.com/x-cold/yuque-hexo#readme",
   "dependencies": {
     "@yuque/sdk": "^1.1.1",
-    "ali-oss": "6.17.0",
+    "ali-oss": "6.18.1",
     "chalk": "^2.4.1",
     "common-bin": "^2.7.3",
     "cos-nodejs-sdk-v5": "^2.11.6",
