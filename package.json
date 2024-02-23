@@ -46,7 +46,7 @@
     "superagent": "^7.0.2",
     "update-check": "^1.5.3",
     "upyun": "^3.4.6",
-    "urllib": "^2.29.1"
+    "urllib": "^3.0.0"
   },
   "devDependencies": {
     "coffee": "^5.1.0",
