@@ -26,7 +26,7 @@
   "homepage": "https://github.com/x-cold/yuque-hexo#readme",
   "dependencies": {
     "@yuque/sdk": "^1.1.1",
-    "ali-oss": "6.17.0",
+    "ali-oss": "6.18.0",
     "chalk": "^2.4.1",
     "common-bin": "^2.7.3",
     "cos-nodejs-sdk-v5": "^2.11.6",
@@ -42,7 +42,7 @@
     "prettier": "^2.0.4",
     "qiniu": "^7.4.0",
     "queue": "^4.5.0",
-    "rimraf": "^2.6.2",
+    "rimraf": "^4.0.0",
     "superagent": "^7.0.2",
     "update-check": "^1.5.3",
     "upyun": "^3.4.6",
